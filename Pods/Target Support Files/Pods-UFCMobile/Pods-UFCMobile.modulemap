@@ -1,0 +1,6 @@
+framework module Pods_UFCMobile {
+  umbrella header "Pods-UFCMobile-umbrella.h"
+
+  export *
+  module * { export * }
+}

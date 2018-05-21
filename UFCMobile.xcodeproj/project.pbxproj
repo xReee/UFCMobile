@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4822F3823C518828C628E73A /* Pods_UFCMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 765CBE60AC4E0350F68806C3 /* Pods_UFCMobile.framework */; };
 		94C066C120A09F1F00294AB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C066C020A09F1F00294AB6 /* AppDelegate.swift */; };
 		94C066C320A09F1F00294AB6 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C066C220A09F1F00294AB6 /* LoginController.swift */; };
 		94C066C620A09F1F00294AB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94C066C420A09F1F00294AB6 /* Main.storyboard */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		765CBE60AC4E0350F68806C3 /* Pods_UFCMobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UFCMobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8366D08AECD6DD99B6269E91 /* Pods-UFCMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UFCMobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UFCMobile/Pods-UFCMobile.debug.xcconfig"; sourceTree = "<group>"; };
 		94C066BD20A09F1F00294AB6 /* UFCMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UFCMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C066C020A09F1F00294AB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94C066C220A09F1F00294AB6 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		94C066CA20A09F1F00294AB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94C066CC20A09F1F00294AB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94C066D220A1382200294AB6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A604BBBB6EB2E89779BE0393 /* Pods-UFCMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UFCMobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-UFCMobile/Pods-UFCMobile.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4822F3823C518828C628E73A /* Pods_UFCMobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33AF943CCA4F77336814432D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				765CBE60AC4E0350F68806C3 /* Pods_UFCMobile.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		94C066B420A09F1E00294AB6 = {
 			isa = PBXGroup;
 			children = (
 				94C066BF20A09F1F00294AB6 /* UFCMobile */,
 				94C066BE20A09F1F00294AB6 /* Products */,
+				A25D6D2E40DE85AF213425DA /* Pods */,
+				33AF943CCA4F77336814432D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +82,15 @@
 			path = UFCMobile;
 			sourceTree = "<group>";
 		};
+		A25D6D2E40DE85AF213425DA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8366D08AECD6DD99B6269E91 /* Pods-UFCMobile.debug.xcconfig */,
+				A604BBBB6EB2E89779BE0393 /* Pods-UFCMobile.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 94C066CF20A09F1F00294AB6 /* Build configuration list for PBXNativeTarget "UFCMobile" */;
 			buildPhases = (
+				9142AFD1F8929834A89A6368 /* [CP] Check Pods Manifest.lock */,
 				94C066B920A09F1F00294AB6 /* Sources */,
 				94C066BA20A09F1F00294AB6 /* Frameworks */,
 				94C066BB20A09F1F00294AB6 /* Resources */,
+				88F076B2F154CFED0C26E7B7 /* [CP] Embed Pods Frameworks */,
+				AB34A75E4DF08E16E44DBD78 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -133,6 +160,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		88F076B2F154CFED0C26E7B7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UFCMobile/Pods-UFCMobile-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9142AFD1F8929834A89A6368 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AB34A75E4DF08E16E44DBD78 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UFCMobile/Pods-UFCMobile-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		94C066B920A09F1F00294AB6 /* Sources */ = {
@@ -276,6 +351,7 @@
 		};
 		94C066D020A09F1F00294AB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8366D08AECD6DD99B6269E91 /* Pods-UFCMobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -291,6 +367,7 @@
 		};
 		94C066D120A09F1F00294AB6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A604BBBB6EB2E89779BE0393 /* Pods-UFCMobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
