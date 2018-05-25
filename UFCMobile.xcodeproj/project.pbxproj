@@ -50,6 +50,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		945DC87720B8829200747F50 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		945DC87820B8829E00747F50 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				94C066C220A09F1F00294AB6 /* LoginController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		945DC87920B882B300747F50 /* Apoio */ = {
+			isa = PBXGroup;
+			children = (
+				94C066D220A1382200294AB6 /* Extensions.swift */,
+				94C066C020A09F1F00294AB6 /* AppDelegate.swift */,
+			);
+			path = Apoio;
+			sourceTree = "<group>";
+		};
 		94C066B420A09F1E00294AB6 = {
 			isa = PBXGroup;
 			children = (
@@ -71,13 +95,13 @@
 		94C066BF20A09F1F00294AB6 /* UFCMobile */ = {
 			isa = PBXGroup;
 			children = (
-				94C066C020A09F1F00294AB6 /* AppDelegate.swift */,
-				94C066C220A09F1F00294AB6 /* LoginController.swift */,
+				945DC87920B882B300747F50 /* Apoio */,
+				945DC87820B8829E00747F50 /* ViewControllers */,
+				945DC87720B8829200747F50 /* Model */,
 				94C066C420A09F1F00294AB6 /* Main.storyboard */,
-				94C066C720A09F1F00294AB6 /* Assets.xcassets */,
 				94C066C920A09F1F00294AB6 /* LaunchScreen.storyboard */,
+				94C066C720A09F1F00294AB6 /* Assets.xcassets */,
 				94C066CC20A09F1F00294AB6 /* Info.plist */,
-				94C066D220A1382200294AB6 /* Extensions.swift */,
 			);
 			path = UFCMobile;
 			sourceTree = "<group>";
