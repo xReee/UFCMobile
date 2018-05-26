@@ -18,6 +18,9 @@ class LoginController: UIViewController, UITextFieldDelegate {
 
     }
 
+    @IBAction func btnLogar(_ sender: UIButton) {
+        performSegue(withIdentifier: "gotoLogar", sender: nil)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
