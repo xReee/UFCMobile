@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4822F3823C518828C628E73A /* Pods_UFCMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 765CBE60AC4E0350F68806C3 /* Pods_UFCMobile.framework */; };
+		940918AF20BB456500D0398D /* AgendaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940918AD20BB456500D0398D /* AgendaTableViewCell.swift */; };
+		940918B020BB456500D0398D /* AgendaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940918AE20BB456500D0398D /* AgendaTableViewCell.xib */; };
 		9494779D20B97E9B00283AA0 /* DiasCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9494779B20B97E9A00283AA0 /* DiasCollectionViewCell.swift */; };
 		9494779E20B97E9B00283AA0 /* DiasCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9494779C20B97E9A00283AA0 /* DiasCollectionViewCell.xib */; };
 		949477A020B9816800283AA0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9494779F20B9816800283AA0 /* HomeViewController.swift */; };
@@ -22,6 +24,8 @@
 /* Begin PBXFileReference section */
 		765CBE60AC4E0350F68806C3 /* Pods_UFCMobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UFCMobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8366D08AECD6DD99B6269E91 /* Pods-UFCMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UFCMobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UFCMobile/Pods-UFCMobile.debug.xcconfig"; sourceTree = "<group>"; };
+		940918AD20BB456500D0398D /* AgendaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaTableViewCell.swift; sourceTree = "<group>"; };
+		940918AE20BB456500D0398D /* AgendaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgendaTableViewCell.xib; sourceTree = "<group>"; };
 		9494779B20B97E9A00283AA0 /* DiasCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiasCollectionViewCell.swift; sourceTree = "<group>"; };
 		9494779C20B97E9A00283AA0 /* DiasCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiasCollectionViewCell.xib; sourceTree = "<group>"; };
 		9494779F20B9816800283AA0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 		940918AA20BB3BB600D0398D /* Agenda */ = {
 			isa = PBXGroup;
 			children = (
+				940918AD20BB456500D0398D /* AgendaTableViewCell.swift */,
+				940918AE20BB456500D0398D /* AgendaTableViewCell.xib */,
 			);
 			path = Agenda;
 			sourceTree = "<group>";
@@ -213,6 +219,7 @@
 				94C066CB20A09F1F00294AB6 /* LaunchScreen.storyboard in Resources */,
 				94C066C820A09F1F00294AB6 /* Assets.xcassets in Resources */,
 				94C066C620A09F1F00294AB6 /* Main.storyboard in Resources */,
+				940918B020BB456500D0398D /* AgendaTableViewCell.xib in Resources */,
 				9494779E20B97E9B00283AA0 /* DiasCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				949477A020B9816800283AA0 /* HomeViewController.swift in Sources */,
+				940918AF20BB456500D0398D /* AgendaTableViewCell.swift in Sources */,
 				94C066C320A09F1F00294AB6 /* LoginController.swift in Sources */,
 				94C066D320A1382200294AB6 /* Extensions.swift in Sources */,
 				94C066C120A09F1F00294AB6 /* AppDelegate.swift in Sources */,

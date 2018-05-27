@@ -10,9 +10,24 @@ import UIKit
 
 class DiasCollectionViewCell: UICollectionViewCell {
 
+    
+    
+    func setActiveTo(_ status : Bool){
+        if status {
+            self.viewIsActive.isHidden = false
+        } else {
+            self.viewIsActive.isHidden = true
+        }
+    }
+    
+    func setLabelTo(_ labelName : String) {
+        lblDias.text! = "\(labelName)"
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+       
     }
     @IBOutlet weak var lblDias: UILabel!
     

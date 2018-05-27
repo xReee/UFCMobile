@@ -208,7 +208,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tEk-fA-EdY">
+                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tEk-fA-EdY">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -235,9 +235,13 @@
                                     <outlet property="delegate" destination="fdJ-jW-2bz" id="VAS-R3-6fO"/>
                                 </connections>
                             </collectionView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BjJ-na-Uhk">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BjJ-na-Uhk">
                                 <rect key="frame" x="0.0" y="50" width="375" height="452"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="fdJ-jW-2bz" id="4Ni-eC-60F"/>
+                                    <outlet property="delegate" destination="fdJ-jW-2bz" id="Jb7-Ff-bE6"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -256,6 +260,7 @@
                     <navigationItem key="navigationItem" title="Inicio" id="izY-jX-8tb"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="agendaTableView" destination="BjJ-na-Uhk" id="XeS-7g-lju"/>
                         <outlet property="diasCollectionView" destination="tEk-fA-EdY" id="NAX-el-xea"/>
                     </connections>
                 </viewController>
@@ -301,11 +306,11 @@
             </objects>
             <point key="canvasLocation" x="1037" y="-582"/>
         </scene>
-        <!--Home-->
+        <!--Navigation Controller-->
         <scene sceneID="wMM-tM-JfJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H5y-Lu-9ER" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="Cyc-Qq-kSc"/>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="Cyc-Qq-kSc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="yoG-QB-cp4">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
