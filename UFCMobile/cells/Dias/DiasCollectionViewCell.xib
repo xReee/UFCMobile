@@ -14,21 +14,35 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="diasCVC" id="gTV-IL-0wX" customClass="DiasCollectionViewCell" customModule="UFCMobile" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="142" height="42"/>
+            <rect key="frame" x="0.0" y="0.0" width="70" height="42"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="142" height="42"/>
+                <rect key="frame" x="0.0" y="0.0" width="70" height="42"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v6p-tn-0oF">
+                        <rect key="frame" x="0.0" y="0.0" width="70" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="8C7-bf-LAh"/>
+                        </constraints>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Nwo-en-r3V">
-                        <rect key="frame" x="0.0" y="0.0" width="142" height="40"/>
+                        <rect key="frame" x="0.0" y="0.0" width="70" height="40"/>
                         <color key="tintColor" red="0.043137254899999998" green="0.53333333329999999" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <fontDescription key="fontDescription" name="LucidaGrande" family="Lucida Grande" pointSize="25"/>
+                        <fontDescription key="fontDescription" name="LucidaGrande" family="Lucida Grande" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qov-Xc-QoF">
-                        <rect key="frame" x="5" y="39.5" width="132" height="2.5"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cu8-ZB-uKc">
+                        <rect key="frame" x="0.0" y="41" width="70" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="EVQ-1d-uCH"/>
+                        </constraints>
+                    </view>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qov-Xc-QoF">
+                        <rect key="frame" x="5" y="39.5" width="60" height="2.5"/>
                         <color key="backgroundColor" red="0.043137254899999998" green="0.53333333329999999" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </subviews>
@@ -39,17 +53,23 @@
                 <constraint firstAttribute="trailing" secondItem="Nwo-en-r3V" secondAttribute="trailing" id="MfB-hF-18T"/>
                 <constraint firstItem="Qov-Xc-QoF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="P1Q-k9-But"/>
                 <constraint firstItem="Nwo-en-r3V" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="VZq-fl-cyG"/>
+                <constraint firstItem="v6p-tn-0oF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Vqg-ZR-7VV"/>
                 <constraint firstAttribute="bottom" secondItem="Qov-Xc-QoF" secondAttribute="bottom" id="Z4V-gY-73S"/>
+                <constraint firstAttribute="bottom" secondItem="cu8-ZB-uKc" secondAttribute="bottom" id="cEd-LR-GFf"/>
+                <constraint firstAttribute="trailing" secondItem="v6p-tn-0oF" secondAttribute="trailing" id="dZg-jb-EiM"/>
+                <constraint firstItem="cu8-ZB-uKc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="eo1-oY-2sg"/>
+                <constraint firstItem="v6p-tn-0oF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="f7H-bI-9Jw"/>
                 <constraint firstItem="Nwo-en-r3V" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="iCh-I3-UEx"/>
+                <constraint firstAttribute="trailing" secondItem="cu8-ZB-uKc" secondAttribute="trailing" id="jZY-o9-5Ye"/>
                 <constraint firstItem="Qov-Xc-QoF" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.05" id="roY-Hx-CPK"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="142" height="73"/>
+            <size key="customSize" width="72" height="73"/>
             <connections>
                 <outlet property="lblDias" destination="Nwo-en-r3V" id="Dou-YF-NBb"/>
                 <outlet property="viewIsActive" destination="Qov-Xc-QoF" id="P9B-as-llY"/>
             </connections>
-            <point key="canvasLocation" x="86" y="34"/>
+            <point key="canvasLocation" x="51" y="34"/>
         </collectionViewCell>
     </objects>
 </document>

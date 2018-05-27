@@ -56,6 +56,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		940918A920BB3BAA00D0398D /* Dias */ = {
+			isa = PBXGroup;
+			children = (
+				9494779B20B97E9A00283AA0 /* DiasCollectionViewCell.swift */,
+				9494779C20B97E9A00283AA0 /* DiasCollectionViewCell.xib */,
+			);
+			path = Dias;
+			sourceTree = "<group>";
+		};
+		940918AA20BB3BB600D0398D /* Agenda */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Agenda;
+			sourceTree = "<group>";
+		};
 		945DC87720B8829200747F50 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -84,8 +100,8 @@
 		9494779A20B97E7500283AA0 /* cells */ = {
 			isa = PBXGroup;
 			children = (
-				9494779B20B97E9A00283AA0 /* DiasCollectionViewCell.swift */,
-				9494779C20B97E9A00283AA0 /* DiasCollectionViewCell.xib */,
+				940918AA20BB3BB600D0398D /* Agenda */,
+				940918A920BB3BAA00D0398D /* Dias */,
 			);
 			path = cells;
 			sourceTree = "<group>";
