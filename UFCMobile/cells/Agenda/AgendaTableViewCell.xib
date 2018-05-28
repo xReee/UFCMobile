@@ -14,7 +14,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="110" id="KGk-i7-Jjw" customClass="AgendaTableViewCell" customModule="UFCMobile" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="agendaCVC" rowHeight="110" id="KGk-i7-Jjw" customClass="AgendaTableViewCell" customModule="UFCMobile" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -22,32 +22,32 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9u-mt-hmU">
-                        <rect key="frame" x="63" y="0.0" width="2" height="109.5"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <rect key="frame" x="63" y="0.0" width="3" height="109.5"/>
+                        <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="2" id="bRc-yn-wPe"/>
+                            <constraint firstAttribute="width" constant="3" id="bRc-yn-wPe"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4cM-6a-8zL">
-                        <rect key="frame" x="75" y="24" width="239" height="62"/>
+                        <rect key="frame" x="76" y="24" width="238" height="62"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Laboratório de Criatividade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMG-Cy-sPA">
-                                <rect key="frame" x="12" y="6" width="215" height="31"/>
+                                <rect key="frame" x="12" y="6" width="214" height="31"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyo-lp-F6c">
-                                <rect key="frame" x="12" y="37" width="215" height="20"/>
+                                <rect key="frame" x="12" y="32" width="214" height="25"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="WMG-Cy-sPA" firstAttribute="height" secondItem="4cM-6a-8zL" secondAttribute="height" multiplier="0.5" id="Nwn-xQ-cpH"/>
-                            <constraint firstItem="nyo-lp-F6c" firstAttribute="top" secondItem="WMG-Cy-sPA" secondAttribute="bottom" id="Zsn-f5-Hr6"/>
+                            <constraint firstItem="nyo-lp-F6c" firstAttribute="top" secondItem="WMG-Cy-sPA" secondAttribute="bottom" constant="-5" id="Zsn-f5-Hr6"/>
                             <constraint firstAttribute="bottom" secondItem="nyo-lp-F6c" secondAttribute="bottom" constant="5" id="hx0-H0-7mY"/>
                             <constraint firstItem="nyo-lp-F6c" firstAttribute="centerX" secondItem="WMG-Cy-sPA" secondAttribute="centerX" id="kxs-Rn-Ev1"/>
                             <constraint firstItem="nyo-lp-F6c" firstAttribute="width" secondItem="WMG-Cy-sPA" secondAttribute="width" id="lOF-tf-a9w"/>
@@ -71,8 +71,39 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwX-vM-LgV">
+                        <rect key="frame" x="57" y="47.5" width="15" height="15"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="crf-mC-V58">
+                                <rect key="frame" x="2.5" y="2.5" width="10" height="10"/>
+                                <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="5Ar-1N-Pwr"/>
+                                    <constraint firstAttribute="width" constant="10" id="cyx-kF-D3I"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="crf-mC-V58" firstAttribute="centerY" secondItem="dwX-vM-LgV" secondAttribute="centerY" id="HV5-XJ-ujO"/>
+                            <constraint firstItem="crf-mC-V58" firstAttribute="centerX" secondItem="dwX-vM-LgV" secondAttribute="centerX" id="hNe-eD-0l0"/>
+                            <constraint firstAttribute="height" constant="15" id="oVE-o7-5k7"/>
+                            <constraint firstAttribute="width" constant="15" id="wRb-FQ-iTP"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="7"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="dwX-vM-LgV" firstAttribute="centerY" secondItem="r9u-mt-hmU" secondAttribute="centerY" id="5l1-p1-Lre"/>
                     <constraint firstItem="Suc-TE-8a6" firstAttribute="top" secondItem="9hX-ki-hH9" secondAttribute="bottom" id="6HE-mF-v0h"/>
                     <constraint firstItem="4cM-6a-8zL" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="10" id="7z4-bd-7g2"/>
                     <constraint firstAttribute="bottomMargin" secondItem="4cM-6a-8zL" secondAttribute="bottom" constant="13" id="KBp-W6-b1A"/>
@@ -83,11 +114,15 @@
                     <constraint firstItem="4cM-6a-8zL" firstAttribute="leading" secondItem="r9u-mt-hmU" secondAttribute="trailing" constant="10" id="cf7-Sx-GAf"/>
                     <constraint firstItem="r9u-mt-hmU" firstAttribute="leading" secondItem="Suc-TE-8a6" secondAttribute="trailing" constant="10" id="hJK-1R-clB"/>
                     <constraint firstItem="Suc-TE-8a6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="hSc-Vy-fwh"/>
+                    <constraint firstItem="dwX-vM-LgV" firstAttribute="centerX" secondItem="r9u-mt-hmU" secondAttribute="centerX" id="isv-kV-toj"/>
                     <constraint firstItem="Suc-TE-8a6" firstAttribute="centerY" secondItem="4cM-6a-8zL" secondAttribute="centerY" id="kUj-Pj-FXv"/>
                     <constraint firstAttribute="bottom" secondItem="r9u-mt-hmU" secondAttribute="bottom" id="uyd-48-8AW"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="viewStatus" destination="crf-mC-V58" id="KFH-lL-Er9"/>
+            </connections>
             <point key="canvasLocation" x="40" y="87"/>
         </tableViewCell>
     </objects>

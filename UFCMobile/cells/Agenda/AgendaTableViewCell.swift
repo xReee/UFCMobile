@@ -12,9 +12,12 @@ class AgendaTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        viewStatus.layer.borderWidth = 2
+        viewStatus.layer.borderColor = UIColor.white.cgColor
         // Initialization code
     }
-
+    @IBOutlet weak var viewStatus: UIView!
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

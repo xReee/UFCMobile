@@ -15,8 +15,10 @@ class DiasCollectionViewCell: UICollectionViewCell {
     func setActiveTo(_ status : Bool){
         if status {
             self.viewIsActive.isHidden = false
+            lblDias.textColor = UIColor.verdePrincipal()
         } else {
             self.viewIsActive.isHidden = true
+            lblDias.textColor = UIColor.black
         }
     }
     
