@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AQX-HM-8tp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,16 +21,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reitoria" translatesAutoresizingMaskIntoConstraints="NO" id="t9p-6X-Bmv">
-                                <rect key="frame" x="0.0" y="-28.5" width="320" height="625"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="reitoria" translatesAutoresizingMaskIntoConstraints="NO" id="t9p-6X-Bmv">
+                                <rect key="frame" x="0.0" y="-29" width="320" height="625"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <visualEffectView opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPP-5x-X1J">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPP-5x-X1J">
                                 <rect key="frame" x="0.0" y="-28.5" width="320" height="625"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="koa-oA-DRW">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="625"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
-                                <blurEffect style="prominent"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.38382919520547948" colorSpace="calibratedRGB"/>
+                                <blurEffect style="regular"/>
                             </visualEffectView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UFClogo" translatesAutoresizingMaskIntoConstraints="NO" id="bI2-0c-OSi">
                                 <rect key="frame" x="0.0" y="70" width="320" height="170.5"/>
@@ -48,7 +50,7 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
                                         <color key="value" red="0.043137254899999998" green="0.53333333329999999" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -114,7 +116,6 @@
                             <constraint firstItem="ZSN-ex-0cJ" firstAttribute="width" secondItem="bI2-0c-OSi" secondAttribute="width" multiplier="0.4" id="DPR-Hd-Ys2"/>
                             <constraint firstItem="9dd-PY-TcT" firstAttribute="centerX" secondItem="P6J-VN-R8N" secondAttribute="centerX" id="Dw7-dE-DaA"/>
                             <constraint firstItem="1KX-3e-aG7" firstAttribute="top" secondItem="ZSN-ex-0cJ" secondAttribute="bottom" constant="40" id="Dxb-mA-wgg"/>
-                            <constraint firstItem="t9p-6X-Bmv" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="ECQ-Fq-EL3"/>
                             <constraint firstItem="5UY-Oo-H00" firstAttribute="centerX" secondItem="P6J-VN-R8N" secondAttribute="centerX" id="Gfc-4P-X47"/>
                             <constraint firstItem="BPP-5x-X1J" firstAttribute="centerX" secondItem="7vg-wd-mKg" secondAttribute="centerX" id="It0-zE-gdh"/>
                             <constraint firstItem="ZSN-ex-0cJ" firstAttribute="centerX" secondItem="7vg-wd-mKg" secondAttribute="centerX" id="KNR-Ym-YID"/>
@@ -123,16 +124,13 @@
                             <constraint firstItem="7vg-wd-mKg" firstAttribute="bottom" secondItem="5UY-Oo-H00" secondAttribute="bottom" constant="10" id="OFn-8i-bA4"/>
                             <constraint firstItem="9dd-PY-TcT" firstAttribute="top" secondItem="P6J-VN-R8N" secondAttribute="bottom" constant="40" id="QhU-fb-smL"/>
                             <constraint firstItem="ZSN-ex-0cJ" firstAttribute="top" secondItem="bI2-0c-OSi" secondAttribute="bottom" constant="10" id="RBr-vD-0Nw"/>
-                            <constraint firstItem="t9p-6X-Bmv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Ryo-tp-dBx"/>
                             <constraint firstItem="9dd-PY-TcT" firstAttribute="width" secondItem="P6J-VN-R8N" secondAttribute="width" multiplier="0.6" id="VMX-iO-dcV"/>
                             <constraint firstItem="5UY-Oo-H00" firstAttribute="width" secondItem="P6J-VN-R8N" secondAttribute="width" id="ZYv-sI-3VV"/>
-                            <constraint firstItem="t9p-6X-Bmv" firstAttribute="centerX" secondItem="7vg-wd-mKg" secondAttribute="centerX" id="cVs-XN-gYC"/>
                             <constraint firstItem="1KX-3e-aG7" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="fVL-4i-dh5"/>
                             <constraint firstItem="BPP-5x-X1J" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1.1" id="jaa-LB-r0r"/>
                             <constraint firstItem="P6J-VN-R8N" firstAttribute="top" secondItem="1KX-3e-aG7" secondAttribute="bottom" constant="20" id="kZv-f9-VJV"/>
                             <constraint firstItem="BPP-5x-X1J" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="maB-gD-dQm"/>
                             <constraint firstItem="bI2-0c-OSi" firstAttribute="top" secondItem="7vg-wd-mKg" secondAttribute="top" constant="50" id="rYd-SK-b5p"/>
-                            <constraint firstItem="t9p-6X-Bmv" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1.1" id="u6c-ex-60Z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7vg-wd-mKg"/>
                         <connections>
@@ -200,7 +198,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UFClogo" translatesAutoresizingMaskIntoConstraints="NO" id="LFX-fA-C1K">
                                         <rect key="frame" x="-0.5" y="39" width="320" height="129.5"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNIVERSIDADE FEDERAL DO CEARÁ" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NAZ-ld-IiA">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNIVERSIDADE FEDERAL DO CEARÁ" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NAZ-ld-IiA">
                                         <rect key="frame" x="33" y="178" width="256" height="55"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
