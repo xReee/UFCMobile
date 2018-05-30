@@ -10,6 +10,8 @@
 		4822F3823C518828C628E73A /* Pods_UFCMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 765CBE60AC4E0350F68806C3 /* Pods_UFCMobile.framework */; };
 		940918AF20BB456500D0398D /* AgendaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940918AD20BB456500D0398D /* AgendaTableViewCell.swift */; };
 		940918B020BB456500D0398D /* AgendaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940918AE20BB456500D0398D /* AgendaTableViewCell.xib */; };
+		948E9B8120BCE09E00A3F92A /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E9B8020BCE09E00A3F92A /* PerfilViewController.swift */; };
+		948E9B8420BCE8F700A3F92A /* BarraBrancaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E9B8320BCE8F700A3F92A /* BarraBrancaViewController.swift */; };
 		9494779D20B97E9B00283AA0 /* DiasCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9494779B20B97E9A00283AA0 /* DiasCollectionViewCell.swift */; };
 		9494779E20B97E9B00283AA0 /* DiasCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9494779C20B97E9A00283AA0 /* DiasCollectionViewCell.xib */; };
 		949477A020B9816800283AA0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9494779F20B9816800283AA0 /* HomeViewController.swift */; };
@@ -27,6 +29,8 @@
 		8366D08AECD6DD99B6269E91 /* Pods-UFCMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UFCMobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UFCMobile/Pods-UFCMobile.debug.xcconfig"; sourceTree = "<group>"; };
 		940918AD20BB456500D0398D /* AgendaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaTableViewCell.swift; sourceTree = "<group>"; };
 		940918AE20BB456500D0398D /* AgendaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgendaTableViewCell.xib; sourceTree = "<group>"; };
+		948E9B8020BCE09E00A3F92A /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
+		948E9B8320BCE8F700A3F92A /* BarraBrancaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarraBrancaViewController.swift; sourceTree = "<group>"; };
 		9494779B20B97E9A00283AA0 /* DiasCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiasCollectionViewCell.swift; sourceTree = "<group>"; };
 		9494779C20B97E9A00283AA0 /* DiasCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiasCollectionViewCell.xib; sourceTree = "<group>"; };
 		9494779F20B9816800283AA0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +97,7 @@
 				94C066C220A09F1F00294AB6 /* LoginController.swift */,
 				9494779F20B9816800283AA0 /* HomeViewController.swift */,
 				94BA1C6620BC767000CCB209 /* UFCViewController.swift */,
+				948E9B8020BCE09E00A3F92A /* PerfilViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -104,6 +109,17 @@
 				94C066C020A09F1F00294AB6 /* AppDelegate.swift */,
 			);
 			path = Apoio;
+			sourceTree = "<group>";
+		};
+		948E9B8220BCE8C500A3F92A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				94C066C420A09F1F00294AB6 /* Main.storyboard */,
+				94C066C920A09F1F00294AB6 /* LaunchScreen.storyboard */,
+				948E9B8320BCE8F700A3F92A /* BarraBrancaViewController.swift */,
+				9494779A20B97E7500283AA0 /* cells */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		9494779A20B97E7500283AA0 /* cells */ = {
@@ -136,12 +152,10 @@
 		94C066BF20A09F1F00294AB6 /* UFCMobile */ = {
 			isa = PBXGroup;
 			children = (
-				9494779A20B97E7500283AA0 /* cells */,
-				945DC87920B882B300747F50 /* Apoio */,
-				945DC87820B8829E00747F50 /* Controllers */,
 				945DC87720B8829200747F50 /* Model */,
-				94C066C420A09F1F00294AB6 /* Main.storyboard */,
-				94C066C920A09F1F00294AB6 /* LaunchScreen.storyboard */,
+				948E9B8220BCE8C500A3F92A /* View */,
+				945DC87820B8829E00747F50 /* Controllers */,
+				945DC87920B882B300747F50 /* Apoio */,
 				94C066C720A09F1F00294AB6 /* Assets.xcassets */,
 				94C066CC20A09F1F00294AB6 /* Info.plist */,
 			);
@@ -287,7 +301,9 @@
 				94C066C320A09F1F00294AB6 /* LoginController.swift in Sources */,
 				94C066D320A1382200294AB6 /* Extensions.swift in Sources */,
 				94BA1C6720BC767000CCB209 /* UFCViewController.swift in Sources */,
+				948E9B8420BCE8F700A3F92A /* BarraBrancaViewController.swift in Sources */,
 				94C066C120A09F1F00294AB6 /* AppDelegate.swift in Sources */,
+				948E9B8120BCE09E00A3F92A /* PerfilViewController.swift in Sources */,
 				9494779D20B97E9B00283AA0 /* DiasCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

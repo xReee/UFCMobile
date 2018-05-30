@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UFCViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class UFCViewController: BarraBrancaViewController, UITableViewDataSource, UITableViewDelegate {
     
     let opcoes = ["Notícias", "Calendário", "Mapa benfica", "Mapa Pici"]
     
@@ -25,7 +25,6 @@ class UFCViewController: UIViewController, UITableViewDataSource, UITableViewDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        UIApplication.shared.statusBarStyle = .lightContent
 
         // Do any additional setup after loading the view.
     }
@@ -33,10 +32,6 @@ class UFCViewController: UIViewController, UITableViewDataSource, UITableViewDel
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override var preferredStatusBarStyle : UIStatusBarStyle {
-        return .lightContent
     }
 
 
