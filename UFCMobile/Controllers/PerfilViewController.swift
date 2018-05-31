@@ -47,7 +47,7 @@ class PerfilViewController: BarraBrancaViewController, UITableViewDelegate, UITa
         
         btnEditar.layer.borderWidth = 1
         btnEditar.layer.borderColor = UIColor.white.cgColor
-        btnEditar.layer.cornerRadius = btnEditar.frame.size.height / 3
+        btnEditar.layer.cornerRadius = btnEditar.frame.size.height / 2
     }
     
     
