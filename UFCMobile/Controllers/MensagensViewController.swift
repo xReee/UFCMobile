@@ -12,7 +12,7 @@ class MensagensViewController:  UIViewController, UICollectionViewDelegate, UICo
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.clvTipoMsg.register(UINib(nibName: "DiasCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "tipoCell")
+        self.clvTipoMsg.register(UINib(nibName: "DiasCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "diasCVC")
 
         
     }
@@ -51,7 +51,7 @@ class MensagensViewController:  UIViewController, UICollectionViewDelegate, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tipoCell", for: indexPath) as! DiasCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "diasCVC", for: indexPath) as! DiasCollectionViewCell
         if indexPath.row == 0 {
             cell.setActiveTo(true)
             cell.isSelected = true
