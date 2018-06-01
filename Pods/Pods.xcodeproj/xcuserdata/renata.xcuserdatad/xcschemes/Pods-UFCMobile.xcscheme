@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0920"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9546CF9FDDDD696E6AD70AEDF0719179"
+               BlueprintIdentifier = "73E2204AEA318AAA1E64668DF82CE7FE"
                BuildableName = "Pods_UFCMobile.framework"
                BlueprintName = "Pods-UFCMobile"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9546CF9FDDDD696E6AD70AEDF0719179"
+            BlueprintIdentifier = "73E2204AEA318AAA1E64668DF82CE7FE"
             BuildableName = "Pods_UFCMobile.framework"
             BlueprintName = "Pods-UFCMobile"
             ReferencedContainer = "container:Pods.xcodeproj">

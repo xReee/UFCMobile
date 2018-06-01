@@ -7,19 +7,49 @@
 //
 
 import UIKit
+import Firebase
+
+
 
 class LoginController: UIViewController, UITextFieldDelegate {
 
+    var ref : DatabaseReference!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         txtMatricula.delegate = self
         txtSenha.delegate = self
+        
+        ref = Database.database().reference()
 
     }
 
     @IBAction func btnLogar(_ sender: UIButton) {
-        performSegue(withIdentifier: "gotoLogar", sender: nil)
+        //performSegue(withIdentifier: "gotoLogar", sender: nil)
+
+       
+        ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            guard let users = snapshot.value as? NSDictionary else {
+                return
+            }
+            
+            for i in users{
+                if self.txtMatricula.text == "\(i.key)"{
+                    self.performSegue(withIdentifier: "gotoLogar", sender: nil)
+                }
+            }
+            
+            let alert = UIAlertController(title: "Erro de autenticação", message: "Verifique os campos e tente novamente", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {

@@ -8,6 +8,11 @@ target 'UFCMobile' do
   # Pods for UFCMobile
 
 pod 'TextFieldEffects'
+pod 'Firebase/Core'
+pod 'Firebase/Auth'
+pod 'Firebase/Database'
+
+
 
 
 end
