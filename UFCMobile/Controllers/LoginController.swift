@@ -27,41 +27,51 @@ class LoginController: UIViewController, UITextFieldDelegate {
 
     @IBAction func btnLogar(_ sender: UIButton) {
         //performSegue(withIdentifier: "gotoLogar", sender: nil)
-
-       
+        var encontrou = false
         ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
-            
+
             guard let users = snapshot.value as? NSDictionary else {
                 return
             }
             
-            
             for i in users{
-                if self.txtMatricula.text == "\(i.key)"{
-                    let conteudoUser = i.value as? NSDictionary
-                    let senha = conteudoUser!["senha"] as? String
-                    if self.txtSenha.text == senha!  {
-                        print("sucesso")
-                        self.performSegue(withIdentifier: "gotoLogar", sender: nil)
+                encontrou = false
+                let conteudoUser = i.value as? NSDictionary
+                let matricula = conteudoUser!["matricula"] as? String
+                if self.txtMatricula.text == matricula && !self.txtSenha.isEqual("") {
+                    encontrou = true
+                    let email = conteudoUser!["emailAuth"] as? String
+                    Auth.auth().signIn(withEmail: email!, password: self.txtSenha.text!) { (user, error) in
+                        if (error == nil) {
+                            self.performSegue(withIdentifier: "gotoLogar", sender: nil)
+                        } else {
+                            JSSAlertView().success(
+                                self, // the parent view controller of the alert
+                                title: "Senha inválida",
+                                text: "Por favor verifique os campos")
+                        }
                     }
                 }
             }
             
-            JSSAlertView().success(
-                self, // the parent view controller of the alert
-                title: "Erro de autenticação",
-                text: "Por favor verifique os campos"
-            )
+            if !encontrou{
+                JSSAlertView().success(
+                    self, // the parent view controller of the alert
+                    title: "Erro de autenticação",
+                    text: "Por favor verifique os campos")
+            }
+           
             
-//
-//            let alert = UIAlertController(title: "Erro de autenticação", message: "Verifique os campos e tente novamente", preferredStyle: UIAlertControllerStyle.alert)
-//            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-//            self.present(alert, animated: true, completion: nil)
+
             
-            // ...
         }) { (error) in
-            print(error.localizedDescription)
+            //print(error.localizedDescription)
+
+            
+
         }
+        
+       
         
     }
     
