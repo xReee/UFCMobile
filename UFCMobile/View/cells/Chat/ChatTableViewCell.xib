@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Baseline standard spacing" minToolsVersion="9.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="chatCell" rowHeight="91" id="KGk-i7-Jjw" customClass="ChatTableViewCell" customModule="UFCMobile" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="395" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="357" height="89.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_empty" translatesAutoresizingMaskIntoConstraints="NO" id="WTs-hW-P3i">
+                        <rect key="frame" x="30" y="18" width="54" height="54"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="WTs-hW-P3i" secondAttribute="height" multiplier="1:1" id="5z3-6M-plY"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vh7-Oc-4jh">
+                        <rect key="frame" x="12" y="40" width="10" height="10"/>
+                        <color key="backgroundColor" red="0.043137254899999998" green="0.53333333329999999" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="Ey7-ax-Mah"/>
+                            <constraint firstAttribute="width" secondItem="Vh7-Oc-4jh" secondAttribute="height" multiplier="1:1" id="hKA-Or-aMQ"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titulo da Cadeira" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nfY-Eg-9Qo">
+                        <rect key="frame" x="92" y="18" width="220.5" height="25"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.043137254899999998" green="0.53333333329999999" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="08:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypv-5s-hj5">
+                        <rect key="frame" x="320.5" y="18" width="36.5" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EpE-U0-f1H">
+                        <rect key="frame" x="92" y="43" width="220.5" height="29"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="WTs-hW-P3i" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="0GS-SX-Aac"/>
+                    <constraint firstItem="WTs-hW-P3i" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.6" id="4Dx-9X-WvO"/>
+                    <constraint firstItem="EpE-U0-f1H" firstAttribute="bottom" secondItem="WTs-hW-P3i" secondAttribute="bottom" id="54w-uC-tI0"/>
+                    <constraint firstItem="nfY-Eg-9Qo" firstAttribute="leading" secondItem="WTs-hW-P3i" secondAttribute="trailing" constant="8" id="58V-TW-WSn"/>
+                    <constraint firstItem="Vh7-Oc-4jh" firstAttribute="centerY" secondItem="WTs-hW-P3i" secondAttribute="centerY" id="DXk-oE-72h"/>
+                    <constraint firstItem="nfY-Eg-9Qo" firstAttribute="top" secondItem="WTs-hW-P3i" secondAttribute="top" id="POz-yP-BPc"/>
+                    <constraint firstAttribute="trailing" secondItem="Ypv-5s-hj5" secondAttribute="trailing" id="SVx-7T-m5p"/>
+                    <constraint firstItem="WTs-hW-P3i" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="YAW-d6-vI7"/>
+                    <constraint firstItem="EpE-U0-f1H" firstAttribute="firstBaseline" secondItem="nfY-Eg-9Qo" secondAttribute="baseline" constant="16" symbolType="layoutAnchor" id="bje-eQ-ixO"/>
+                    <constraint firstItem="EpE-U0-f1H" firstAttribute="centerX" secondItem="nfY-Eg-9Qo" secondAttribute="centerX" id="bqW-1m-44R"/>
+                    <constraint firstItem="WTs-hW-P3i" firstAttribute="leading" secondItem="Vh7-Oc-4jh" secondAttribute="trailing" constant="8" id="eXU-9F-XIE"/>
+                    <constraint firstItem="EpE-U0-f1H" firstAttribute="width" secondItem="nfY-Eg-9Qo" secondAttribute="width" id="hsX-of-lol"/>
+                    <constraint firstItem="Ypv-5s-hj5" firstAttribute="leading" secondItem="nfY-Eg-9Qo" secondAttribute="trailing" constant="8" id="mEg-cS-Nbp"/>
+                    <constraint firstItem="Ypv-5s-hj5" firstAttribute="top" secondItem="nfY-Eg-9Qo" secondAttribute="top" id="zfp-PK-LgT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imgFoto" destination="WTs-hW-P3i" id="oRN-M1-ANG"/>
+                <outlet property="updateView" destination="Vh7-Oc-4jh" id="JBl-jN-MuT"/>
+            </connections>
+            <point key="canvasLocation" x="71.5" y="136.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="profile_empty" width="1024" height="1024"/>
+    </resources>
+</document>

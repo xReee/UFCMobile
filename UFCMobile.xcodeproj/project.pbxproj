@@ -10,6 +10,8 @@
 		4822F3823C518828C628E73A /* Pods_UFCMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 765CBE60AC4E0350F68806C3 /* Pods_UFCMobile.framework */; };
 		940918AF20BB456500D0398D /* AgendaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940918AD20BB456500D0398D /* AgendaTableViewCell.swift */; };
 		940918B020BB456500D0398D /* AgendaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940918AE20BB456500D0398D /* AgendaTableViewCell.xib */; };
+		948AC65020C0C969008DE8E9 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948AC64E20C0C969008DE8E9 /* ChatTableViewCell.swift */; };
+		948AC65120C0C969008DE8E9 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 948AC64F20C0C969008DE8E9 /* ChatTableViewCell.xib */; };
 		948E9B8120BCE09E00A3F92A /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E9B8020BCE09E00A3F92A /* PerfilViewController.swift */; };
 		948E9B8420BCE8F700A3F92A /* BarraBrancaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E9B8320BCE8F700A3F92A /* BarraBrancaViewController.swift */; };
 		948E9B8620BF9B2800A3F92A /* MensagensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E9B8520BF9B2800A3F92A /* MensagensViewController.swift */; };
@@ -30,6 +32,8 @@
 		8366D08AECD6DD99B6269E91 /* Pods-UFCMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UFCMobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UFCMobile/Pods-UFCMobile.debug.xcconfig"; sourceTree = "<group>"; };
 		940918AD20BB456500D0398D /* AgendaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaTableViewCell.swift; sourceTree = "<group>"; };
 		940918AE20BB456500D0398D /* AgendaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgendaTableViewCell.xib; sourceTree = "<group>"; };
+		948AC64E20C0C969008DE8E9 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		948AC64F20C0C969008DE8E9 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
 		948E9B8020BCE09E00A3F92A /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
 		948E9B8320BCE8F700A3F92A /* BarraBrancaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarraBrancaViewController.swift; sourceTree = "<group>"; };
 		948E9B8520BF9B2800A3F92A /* MensagensViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MensagensViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +118,15 @@
 			path = Apoio;
 			sourceTree = "<group>";
 		};
+		948AC64B20C0C92F008DE8E9 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				948AC64E20C0C969008DE8E9 /* ChatTableViewCell.swift */,
+				948AC64F20C0C969008DE8E9 /* ChatTableViewCell.xib */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
 		948E9B8220BCE8C500A3F92A /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +141,7 @@
 		9494779A20B97E7500283AA0 /* cells */ = {
 			isa = PBXGroup;
 			children = (
+				948AC64B20C0C92F008DE8E9 /* Chat */,
 				940918AA20BB3BB600D0398D /* Agenda */,
 				940918A920BB3BAA00D0398D /* Dias */,
 			);
@@ -237,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94C066CB20A09F1F00294AB6 /* LaunchScreen.storyboard in Resources */,
+				948AC65120C0C969008DE8E9 /* ChatTableViewCell.xib in Resources */,
 				94C066C820A09F1F00294AB6 /* Assets.xcassets in Resources */,
 				94C066C620A09F1F00294AB6 /* Main.storyboard in Resources */,
 				940918B020BB456500D0398D /* AgendaTableViewCell.xib in Resources */,
@@ -304,6 +319,7 @@
 				94C066C320A09F1F00294AB6 /* LoginController.swift in Sources */,
 				94C066D320A1382200294AB6 /* Extensions.swift in Sources */,
 				948E9B8620BF9B2800A3F92A /* MensagensViewController.swift in Sources */,
+				948AC65020C0C969008DE8E9 /* ChatTableViewCell.swift in Sources */,
 				94BA1C6720BC767000CCB209 /* UFCViewController.swift in Sources */,
 				948E9B8420BCE8F700A3F92A /* BarraBrancaViewController.swift in Sources */,
 				94C066C120A09F1F00294AB6 /* AppDelegate.swift in Sources */,
