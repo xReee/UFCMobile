@@ -25,6 +25,8 @@
 		94C066C820A09F1F00294AB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94C066C720A09F1F00294AB6 /* Assets.xcassets */; };
 		94C066CB20A09F1F00294AB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94C066C920A09F1F00294AB6 /* LaunchScreen.storyboard */; };
 		94C066D320A1382200294AB6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C066D220A1382200294AB6 /* Extensions.swift */; };
+		94E7525320C1E0B10030A5E7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E7525220C1E0B10030A5E7 /* User.swift */; };
+		94E7525520C1E0BC0030A5E7 /* Cadeira.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E7525420C1E0BC0030A5E7 /* Cadeira.swift */; };
 		94F84AA520C1776400FDF96D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94F84AA420C1776400FDF96D /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +52,8 @@
 		94C066CA20A09F1F00294AB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94C066CC20A09F1F00294AB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94C066D220A1382200294AB6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		94E7525220C1E0B10030A5E7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		94E7525420C1E0BC0030A5E7 /* Cadeira.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cadeira.swift; sourceTree = "<group>"; };
 		94F84AA420C1776400FDF96D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A604BBBB6EB2E89779BE0393 /* Pods-UFCMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UFCMobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-UFCMobile/Pods-UFCMobile.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +99,8 @@
 		945DC87720B8829200747F50 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				94E7525220C1E0B10030A5E7 /* User.swift */,
+				94E7525420C1E0BC0030A5E7 /* Cadeira.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -318,6 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94E7525520C1E0BC0030A5E7 /* Cadeira.swift in Sources */,
 				949477A020B9816800283AA0 /* HomeViewController.swift in Sources */,
 				940918AF20BB456500D0398D /* AgendaTableViewCell.swift in Sources */,
 				94C066C320A09F1F00294AB6 /* LoginController.swift in Sources */,
@@ -326,6 +333,7 @@
 				948AC65020C0C969008DE8E9 /* ChatTableViewCell.swift in Sources */,
 				94BA1C6720BC767000CCB209 /* UFCViewController.swift in Sources */,
 				948E9B8420BCE8F700A3F92A /* BarraBrancaViewController.swift in Sources */,
+				94E7525320C1E0B10030A5E7 /* User.swift in Sources */,
 				94C066C120A09F1F00294AB6 /* AppDelegate.swift in Sources */,
 				948E9B8120BCE09E00A3F92A /* PerfilViewController.swift in Sources */,
 				9494779D20B97E9B00283AA0 /* DiasCollectionViewCell.swift in Sources */,

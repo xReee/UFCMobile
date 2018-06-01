@@ -121,6 +121,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="txtLocal" destination="nyo-lp-F6c" id="jqU-9x-Fsh"/>
+                <outlet property="txtNome" destination="WMG-Cy-sPA" id="H3y-FX-Cwa"/>
                 <outlet property="viewStatus" destination="crf-mC-V58" id="KFH-lL-Er9"/>
             </connections>
             <point key="canvasLocation" x="40" y="87"/>

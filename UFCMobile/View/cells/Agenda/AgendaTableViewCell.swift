@@ -23,5 +23,7 @@ class AgendaTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    @IBOutlet weak var txtNome: UILabel!
+    @IBOutlet weak var txtLocal: UILabel!
     
 }
