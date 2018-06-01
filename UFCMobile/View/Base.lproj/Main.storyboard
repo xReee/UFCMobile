@@ -246,7 +246,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FHF-7w-i5x"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Perfil" id="sMS-q0-Vlb"/>
+                    <tabBarItem key="tabBarItem" title="Perfil" image="perfil-icon" id="sMS-q0-Vlb"/>
                     <connections>
                         <outlet property="btnEditar" destination="0v1-xS-bN1" id="Mqo-OB-tZL"/>
                         <outlet property="imgPerfil" destination="zr7-Um-pdk" id="O7q-rF-6Ro"/>
@@ -330,7 +330,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7iN-WA-Mis"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="UFC" id="yOH-H9-JnU"/>
+                    <tabBarItem key="tabBarItem" title="UFC" image="UFC-icon" id="yOH-H9-JnU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pjl-d6-2Og" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -485,7 +485,7 @@
         <scene sceneID="igT-dG-mDD">
             <objects>
                 <tabBarController extendedLayoutIncludesOpaqueBars="YES" id="AQX-HM-8tp" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="4z0-0A-XjT">
+                    <tabBar key="tabBar" clipsSubviews="YES" contentMode="scaleToFill" translucent="NO" id="4z0-0A-XjT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -508,7 +508,7 @@
         <scene sceneID="wMM-tM-JfJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H5y-Lu-9ER" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="Cyc-Qq-kSc"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home-icon" id="Cyc-Qq-kSc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="yoG-QB-cp4">
                         <rect key="frame" x="0.0" y="20" width="320" height="96"/>
@@ -530,7 +530,7 @@
         <scene sceneID="Txl-Rk-Sw1">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yAu-JX-9GJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Configurações" id="ra0-T5-cvZ"/>
+                    <tabBarItem key="tabBarItem" title="Configurações" image="conf-icon" id="ra0-T5-cvZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="ul8-67-GIh">
                         <rect key="frame" x="0.0" y="20" width="320" height="96"/>
@@ -550,7 +550,7 @@
         <scene sceneID="fXk-pv-B4Z">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="M3u-wj-pyk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Mensagens" id="y67-IF-dKf"/>
+                    <tabBarItem key="tabBarItem" title="Mensagens" image="chat-icon" id="y67-IF-dKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="0rQ-7t-eRC">
                         <rect key="frame" x="0.0" y="20" width="320" height="96"/>
@@ -568,7 +568,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="UFC-icon" width="25" height="25"/>
         <image name="UFClogo" width="976" height="1256"/>
+        <image name="chat-icon" width="25" height="18"/>
+        <image name="conf-icon" width="25" height="25"/>
+        <image name="home-icon" width="25" height="21"/>
+        <image name="perfil-icon" width="25" height="25"/>
         <image name="profile_empty" width="1024" height="1024"/>
         <image name="reitoria" width="1024" height="680"/>
     </resources>

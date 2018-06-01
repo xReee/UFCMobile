@@ -25,6 +25,7 @@
 		94C066C820A09F1F00294AB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94C066C720A09F1F00294AB6 /* Assets.xcassets */; };
 		94C066CB20A09F1F00294AB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94C066C920A09F1F00294AB6 /* LaunchScreen.storyboard */; };
 		94C066D320A1382200294AB6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C066D220A1382200294AB6 /* Extensions.swift */; };
+		94F84AA520C1776400FDF96D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94F84AA420C1776400FDF96D /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		94C066CA20A09F1F00294AB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94C066CC20A09F1F00294AB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94C066D220A1382200294AB6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		94F84AA420C1776400FDF96D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A604BBBB6EB2E89779BE0393 /* Pods-UFCMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UFCMobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-UFCMobile/Pods-UFCMobile.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +114,7 @@
 		945DC87920B882B300747F50 /* Apoio */ = {
 			isa = PBXGroup;
 			children = (
+				94F84AA420C1776400FDF96D /* GoogleService-Info.plist */,
 				94C066D220A1382200294AB6 /* Extensions.swift */,
 				94C066C020A09F1F00294AB6 /* AppDelegate.swift */,
 			);
@@ -256,6 +259,7 @@
 				94C066C620A09F1F00294AB6 /* Main.storyboard in Resources */,
 				940918B020BB456500D0398D /* AgendaTableViewCell.xib in Resources */,
 				9494779E20B97E9B00283AA0 /* DiasCollectionViewCell.xib in Resources */,
+				94F84AA520C1776400FDF96D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

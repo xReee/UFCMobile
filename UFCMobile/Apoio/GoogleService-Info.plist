@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>385902739843-5fu11ani7qgd96foqb7ni117m0s0qc97.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.385902739843-5fu11ani7qgd96foqb7ni117m0s0qc97</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC1gv6J_HcP7mm0VgWQUHhr_a1EyP1znkg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>385902739843</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>RenataFaria.UFCMobile</string>
+	<key>PROJECT_ID</key>
+	<string>ufcmobile-p2</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ufcmobile-p2.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:385902739843:ios:c87366d6a96190cc</string>
+	<key>DATABASE_URL</key>
+	<string>https://ufcmobile-p2.firebaseio.com</string>
+</dict>
+</plist>
