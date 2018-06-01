@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9B0028E6DAB80EA0E2BF8F62614ED80E"
-               BuildableName = "Pods_UFCMobile.framework"
-               BlueprintName = "Pods-UFCMobile"
+               BlueprintIdentifier = "D368184BEED712B6A15E4767FE420BE5"
+               BuildableName = "JSSAlertView.framework"
+               BlueprintName = "JSSAlertView"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9B0028E6DAB80EA0E2BF8F62614ED80E"
-            BuildableName = "Pods_UFCMobile.framework"
-            BlueprintName = "Pods-UFCMobile"
+            BlueprintIdentifier = "D368184BEED712B6A15E4767FE420BE5"
+            BuildableName = "JSSAlertView.framework"
+            BlueprintName = "JSSAlertView"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

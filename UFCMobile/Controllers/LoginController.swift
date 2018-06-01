@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-
+import JSSAlertView
 
 
 class LoginController: UIViewController, UITextFieldDelegate {
@@ -35,15 +35,28 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 return
             }
             
+            
             for i in users{
                 if self.txtMatricula.text == "\(i.key)"{
-                    self.performSegue(withIdentifier: "gotoLogar", sender: nil)
+                    let conteudoUser = i.value as? NSDictionary
+                    let senha = conteudoUser!["senha"] as? String
+                    if self.txtSenha.text == senha!  {
+                        print("sucesso")
+                        self.performSegue(withIdentifier: "gotoLogar", sender: nil)
+                    }
                 }
             }
             
-            let alert = UIAlertController(title: "Erro de autenticação", message: "Verifique os campos e tente novamente", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            JSSAlertView().success(
+                self, // the parent view controller of the alert
+                title: "Erro de autenticação",
+                text: "Por favor verifique os campos"
+            )
+            
+//
+//            let alert = UIAlertController(title: "Erro de autenticação", message: "Verifique os campos e tente novamente", preferredStyle: UIAlertControllerStyle.alert)
+//            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+//            self.present(alert, animated: true, completion: nil)
             
             // ...
         }) { (error) in
