@@ -121,8 +121,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="txtHora" destination="Suc-TE-8a6" id="eUS-gX-u25"/>
                 <outlet property="txtLocal" destination="nyo-lp-F6c" id="jqU-9x-Fsh"/>
                 <outlet property="txtNome" destination="WMG-Cy-sPA" id="H3y-FX-Cwa"/>
+                <outlet property="txtTurno" destination="9hX-ki-hH9" id="pTw-8N-gnF"/>
                 <outlet property="viewStatus" destination="crf-mC-V58" id="KFH-lL-Er9"/>
             </connections>
             <point key="canvasLocation" x="40" y="87"/>

@@ -10,6 +10,7 @@ import UIKit
 
 class Cadeira: NSObject {
     
+    private var turno = "manhã"
     private let codigo : String
     private let nome : String
     private let local : String
@@ -34,6 +35,38 @@ class Cadeira: NSObject {
         default:
             return ""
         }
+    }
+    
+    func getTurno() -> String {
+        return turno
+    }
+    
+    func getHorarioInicio(dia:String) -> String{
+        guard let dias = horario[dia] else {
+            return ""
+        }
+        guard let horarioInicio = dias["inicio"] else {
+            return ""
+        }
+        /*
+         let stringNumbers = "1 2 10"
+         let array = stringNumbers.components(separatedBy: " ")
+         let intArray = array.map { Int($0)!} // [1, 2, 10]
+         */
+        let horaToda = horarioInicio.components(separatedBy: ":")
+        let horaInt = Int(horaToda.first!)
+        if horaInt! < 12 {
+            self.turno = "manhã"
+        } else if horaInt! <= 17 {
+            self.turno = "tarde"
+        } else {
+            self.turno = "noite"
+        }
+        
+        
+        
+        return horarioInicio
+        
     }
     
 }

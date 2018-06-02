@@ -13,6 +13,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     var arrayCadeiras: [Cadeira]? = [Cadeira]()
     var ref: DatabaseReference!
+    var diaAtivo = "segunda"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,26 +67,23 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     let dias = i.value as? NSDictionary
                     for y in dias! {
                         let dia = y.value as? NSDictionary
-                        var fim = ""
-                         var inicio = ""
+                        var inicio = ""
                         for z in dia! {
                             switch z.key as! String {
                             case "inicio":
                                 inicio = z.value as! String
                             default:
-                                fim = z.value as! String
+                                break
                             }
                         }
                         let horarioChave = y.key as! String
-                        horarios[horarioChave] = [inicio:fim]
+                        horarios[horarioChave] = ["inicio": inicio]
+                        
                     }
                     break
                 default:
                     print("deu ruim")
-                }
-                
-                
-                
+                }               
             }
             
             let novaCadeira = Cadeira(codigo: snapshot.key, nome: nome, local: local, horario: horarios)
@@ -104,6 +102,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     // COLLECTION VIEW
             private let diasDaSemana = ["SEG","TER","QUA","QUI","SEX","SAB"]
+            private let diasInteirosDaSemana = ["segunda","terca","quarta","quinta","sexta","sabado"]
     
             @IBOutlet weak var diasCollectionView: UICollectionView!
     
@@ -129,6 +128,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 // seleciona o correto
                 let cell = collectionView.cellForItem(at: indexPath) as! DiasCollectionViewCell
                     cell.setActiveTo(true)
+                
+                diaAtivo = diasInteirosDaSemana[indexPath.row]
+                
+                self.agendaTableView.reloadData()
             }
     
     
@@ -154,17 +157,39 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 guard let qntCadeiras = self.arrayCadeiras?.count else {
                     return 0
                 }
-                return qntCadeiras
+                var contador = 0
+
+                if qntCadeiras > 0 {
+                    for i in 0...qntCadeiras - 1 {
+                        let cadeiraDaVez = arrayCadeiras![i]
+                        if cadeiraDaVez.getHorarioInicio(dia: diaAtivo) != "" {
+                            contador+=1
+                        }
+                    }
+                }
+                return contador
             }
     
             func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "agendaCVC") as! AgendaTableViewCell
-                do {
-                    let cadeiraDaVez : Cadeira = arrayCadeiras![indexPath.row] as! Cadeira
-                    try cell.txtLocal.text! = cadeiraDaVez.get("local")
-                    try cell.txtNome.text!  = cadeiraDaVez.get("nome")
+
+                guard let qntCadeiras = self.arrayCadeiras?.count else {
+                    return cell
                 }
+                
+                    for i in indexPath.row...qntCadeiras - 1 {
+                        let cadeiraDaVez = arrayCadeiras![i]
+                        if cadeiraDaVez.getHorarioInicio(dia: diaAtivo) != "" {
+                                let cadeira : Cadeira = arrayCadeiras![i]
+                                cell.txtLocal.text! = cadeira.get("local")
+                                cell.txtNome.text!  = cadeira.get("nome")
+                                cell.txtHora.text! = cadeira.getHorarioInicio(dia: diaAtivo)
+                                cell.txtTurno.text! = cadeira.getTurno()
+                                return cell
+                         }
+                        }
                 return cell
+                
             }
     
             func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

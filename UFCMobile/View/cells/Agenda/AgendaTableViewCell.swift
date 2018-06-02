@@ -9,11 +9,12 @@
 import UIKit
 
 class AgendaTableViewCell: UITableViewCell {
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         viewStatus.layer.borderWidth = 2
         viewStatus.layer.borderColor = UIColor.white.cgColor
+        
         // Initialization code
     }
     @IBOutlet weak var viewStatus: UIView!
@@ -23,7 +24,9 @@ class AgendaTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    @IBOutlet weak var txtHora: UILabel!
     @IBOutlet weak var txtNome: UILabel!
     @IBOutlet weak var txtLocal: UILabel!
+    @IBOutlet weak var txtTurno: UILabel!
     
 }
