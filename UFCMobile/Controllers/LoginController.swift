@@ -15,7 +15,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
 
     var ref : DatabaseReference!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

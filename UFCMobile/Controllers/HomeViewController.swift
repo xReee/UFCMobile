@@ -15,6 +15,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var ref: DatabaseReference!
     var diaAtivo = "segunda"
     var horaAtiva = 0
+    var diaAtual = "domingo"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,14 +30,23 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         verificarDados()
     }
     
+    //# MARK: seleciona cadeira
     func selecionarPorDia(){
+        
         let hora = Calendar.current.component(.hour, from: Date())
         let dia = Calendar.current.component(.weekday, from: Date())
         
-        diaAtivo = diasInteirosDaSemana[dia-2]
-        horaAtiva = hora
         
-        collectionView(diasCollectionView, didSelectItemAt: IndexPath.init(item: dia-2, section: 0))
+        diaAtual = diasInteirosComDomingo[dia-1]
+        
+        if dia != 1 {
+            diaAtivo = diasInteirosDaSemana[dia-2]
+            horaAtiva = hora
+        
+            collectionView(diasCollectionView, didSelectItemAt: IndexPath.init(item: dia-2, section: 0))
+        }
+    
+        diaAtivo = diasInteirosDaSemana[0]
         
     }
     
@@ -128,7 +138,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     // COLLECTION VIEW
             private let diasDaSemana = ["SEG","TER","QUA","QUI","SEX","SAB"]
             private let diasInteirosDaSemana = ["segunda","terca","quarta","quinta","sexta","sabado"]
-    
+            private let diasInteirosComDomingo = ["domingo", "segunda","terca","quarta","quinta","sexta","sabado"]
+
             @IBOutlet weak var diasCollectionView: UICollectionView!
     
             func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -153,9 +164,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 
                 // seleciona o correto
                 let cell = collectionView.cellForItem(at: indexPath) as! DiasCollectionViewCell
-                
-                    cell.setActiveTo(true)
-                
+                cell.setActiveTo(true)
                 diaAtivo = diasInteirosDaSemana[indexPath.row]
                 
                 self.agendaTableView.reloadData()
@@ -212,7 +221,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                 cell.txtNome.text!  = cadeira.get("nome")
                                 cell.txtHora.text! = cadeira.getHorarioInicio(dia: diaAtivo)
                                 cell.txtTurno.text! = cadeira.getTurno()
-                            if (horaAtiva >  cadeira.getHorarioInt(dia: diaAtivo, "inicio")) && (horaAtiva < cadeira.getHorarioInt(dia: diaAtivo, "fim")) {
+                            if (horaAtiva >  cadeira.getHorarioInt(dia: diaAtivo, "inicio")) && (horaAtiva < cadeira.getHorarioInt(dia: diaAtivo, "fim") && diaAtivo == diaAtual) {
                                 cell.selecionarCelula()
                             }
                                 return cell

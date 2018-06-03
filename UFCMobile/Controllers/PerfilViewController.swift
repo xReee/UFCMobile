@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class PerfilViewController: BarraBrancaViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var txtMatricula: UILabel!
+    @IBOutlet weak var txtNome: UILabel!
+    
+     var ref : DatabaseReference!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
@@ -28,7 +34,7 @@ class PerfilViewController: BarraBrancaViewController, UITableViewDelegate, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        recuperarDados()
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,6 +54,29 @@ class PerfilViewController: BarraBrancaViewController, UITableViewDelegate, UITa
         btnEditar.layer.borderWidth = 1
         btnEditar.layer.borderColor = UIColor.white.cgColor
         btnEditar.layer.cornerRadius = btnEditar.frame.size.height / 2
+    }
+    
+    func recuperarDados(){
+        let userID = Auth.auth().currentUser?.uid
+        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+           // let userInfo = snapshot.value as? NSDictionary
+
+//            for i in userInfo! {
+////                switch i.key as! String {
+////                case "matricula":
+////                    txtMatricula.text = i.value as! String
+////                    break
+////                case "nome":
+////                    txtNome.text = i.value as! String
+////                    break
+////                default:
+////                    break
+////                }
+//            }
+//
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
     
     

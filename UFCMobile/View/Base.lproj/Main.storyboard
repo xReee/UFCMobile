@@ -250,6 +250,8 @@
                     <connections>
                         <outlet property="btnEditar" destination="0v1-xS-bN1" id="Mqo-OB-tZL"/>
                         <outlet property="imgPerfil" destination="zr7-Um-pdk" id="O7q-rF-6Ro"/>
+                        <outlet property="txtMatricula" destination="TSW-S7-K8N" id="qgP-ta-get"/>
+                        <outlet property="txtNome" destination="zwL-Mv-UhM" id="ysh-Ig-IVq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kts-QG-xVn" userLabel="First Responder" sceneMemberID="firstResponder"/>
