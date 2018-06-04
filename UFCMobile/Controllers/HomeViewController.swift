@@ -14,20 +14,39 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var arrayCadeiras: [Cadeira]? = [Cadeira]()
     var ref: DatabaseReference!
     var diaAtivo = "segunda"
+    var horaAtiva = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        ref = Database.database().reference()
-        verificarDados()
         
         self.diasCollectionView.register( UINib(nibName: "DiasCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "diasCVC")
         self.agendaTableView.register(UINib(nibName:"AgendaTableViewCell", bundle: nil ), forCellReuseIdentifier: "agendaCVC")
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        ref = Database.database().reference()
+        verificarDados()
+    }
+    
+    func selecionarPorDia(){
+        let hora = Calendar.current.component(.hour, from: Date())
+        let dia = Calendar.current.component(.weekday, from: Date())
+        
+        diaAtivo = diasInteirosDaSemana[dia-2]
+        horaAtiva = "\(hora)"
+        
+        collectionView(diasCollectionView, didSelectItemAt: IndexPath.init(item: dia-2, section: 0))
+        
+    }
+    
+    
 
     func verificarDados(){
+        
+        arrayCadeiras?.removeAll()
+        
+        
         let userID = Auth.auth().currentUser?.uid
         ref.child("users").child(userID!).child("cadeiras").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
@@ -89,12 +108,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let novaCadeira = Cadeira(codigo: snapshot.key, nome: nome, local: local, horario: horarios)
             self.arrayCadeiras?.append(novaCadeira)
             self.agendaTableView.reloadData()
+            self.selecionarPorDia()
             
         }) { (error) in
             print(error.localizedDescription)
         }
     }
     
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -125,8 +146,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     let cell = i as! DiasCollectionViewCell
                     cell.setActiveTo(false)
                 }
+                
                 // seleciona o correto
                 let cell = collectionView.cellForItem(at: indexPath) as! DiasCollectionViewCell
+                
                     cell.setActiveTo(true)
                 
                 diaAtivo = diasInteirosDaSemana[indexPath.row]
