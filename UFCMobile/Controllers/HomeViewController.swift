@@ -135,7 +135,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // Dispose of any resources that can be recreated.
     }
     
-    // COLLECTION VIEW
+    //#MARK: COLLECTION VIEW
             private let diasDaSemana = ["SEG","TER","QUA","QUI","SEX","SAB"]
             private let diasInteirosDaSemana = ["segunda","terca","quarta","quinta","sexta","sabado"]
             private let diasInteirosComDomingo = ["domingo", "segunda","terca","quarta","quinta","sexta","sabado"]
@@ -185,7 +185,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             }
     
     
-     // TABLE VIEW
+     //#MARK: TABLE VIEW
             @IBOutlet weak var agendaTableView: UITableView!
     
             func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

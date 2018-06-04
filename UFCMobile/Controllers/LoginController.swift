@@ -60,9 +60,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
                     title: "Erro de autenticação",
                     text: "Por favor verifique os campos")
             }
-           
-            
-
             
         }) { (error) in
             //print(error.localizedDescription)

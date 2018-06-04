@@ -32,3 +32,16 @@ extension UIColor {
     }
 }
 
+extension UITableView {
+    func becomeFirstResponderTextField() {
+        outer: for cell in visibleCells {
+            for view in cell.contentView.subviews {
+                if let textfield = view as? UITextField {
+                    textfield.becomeFirstResponder()
+                    break outer
+                }
+            }
+        }
+    }
+}
+

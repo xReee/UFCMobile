@@ -17,7 +17,7 @@ class PerfilViewController: BarraBrancaViewController, UITableViewDelegate, UITa
      var ref : DatabaseReference!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return opcoes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -30,10 +30,15 @@ class PerfilViewController: BarraBrancaViewController, UITableViewDelegate, UITa
     @IBOutlet weak var imgPerfil: UIImageView!
     @IBOutlet weak var btnEditar: UIButton!
     
-    let opcoes = ["Perfil Completo", "Atestado de matrícula", "Cadeiras Anteriores", "IRA", "Resultado do processamento"]
+  //  let opcoes = ["Perfil Completo", "Atestado de matrícula", "Cadeiras Anteriores", "IRA", "Resultado do processamento"]
+    let opcoes = ["Perfil Completo"]// "Atestado de matrícula", "Cadeiras Anteriores", "IRA", "Resultado do processamento"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        recuperarDados()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         recuperarDados()
     }
 
@@ -57,23 +62,25 @@ class PerfilViewController: BarraBrancaViewController, UITableViewDelegate, UITa
     }
     
     func recuperarDados(){
+        ref = Database.database().reference()
+
         let userID = Auth.auth().currentUser?.uid
         ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-           // let userInfo = snapshot.value as? NSDictionary
+            
+            let userInfo = snapshot.value as? NSDictionary
 
-//            for i in userInfo! {
-////                switch i.key as! String {
-////                case "matricula":
-////                    txtMatricula.text = i.value as! String
-////                    break
-////                case "nome":
-////                    txtNome.text = i.value as! String
-////                    break
-////                default:
-////                    break
-////                }
-//            }
-//
+            for i in userInfo! {
+                switch i.key as! String {
+                case "matricula":
+                    self.txtMatricula.text = i.value as? String
+                    break
+                case "nome":
+                    self.txtNome.text = i.value as? String
+                    break
+                default:
+                    break
+                }
+            }
         }) { (error) in
             print(error.localizedDescription)
         }
