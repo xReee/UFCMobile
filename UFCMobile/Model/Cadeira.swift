@@ -48,11 +48,6 @@ class Cadeira: NSObject {
         guard let horarioInicio = dias["inicio"] else {
             return ""
         }
-        /*
-         let stringNumbers = "1 2 10"
-         let array = stringNumbers.components(separatedBy: " ")
-         let intArray = array.map { Int($0)!} // [1, 2, 10]
-         */
         let horaToda = horarioInicio.components(separatedBy: ":")
         let horaInt = Int(horaToda.first!)
         if horaInt! < 12 {
@@ -63,10 +58,21 @@ class Cadeira: NSObject {
             self.turno = "noite"
         }
         
-        
-        
         return horarioInicio
         
     }
+    
+    func getHorarioInt(dia:String, _ qual: String) -> Int {
+        guard let dias = horario[dia] else {
+            return 0
+        }
+        guard let horarioInicio = dias[qual] else {
+            return 0
+        }
+        let horaToda = horarioInicio.components(separatedBy: ":")
+        let horaInt = Int(horaToda.first!)
+        return horaInt!
+    }
+    
     
 }

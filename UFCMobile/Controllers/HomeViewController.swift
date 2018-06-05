@@ -14,7 +14,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var arrayCadeiras: [Cadeira]? = [Cadeira]()
     var ref: DatabaseReference!
     var diaAtivo = "segunda"
-    var horaAtiva = ""
+    var horaAtiva = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let dia = Calendar.current.component(.weekday, from: Date())
         
         diaAtivo = diasInteirosDaSemana[dia-2]
-        horaAtiva = "\(hora)"
+        horaAtiva = hora
         
         collectionView(diasCollectionView, didSelectItemAt: IndexPath.init(item: dia-2, section: 0))
         
@@ -86,17 +86,21 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     let dias = i.value as? NSDictionary
                     for y in dias! {
                         let dia = y.value as? NSDictionary
-                        var inicio = ""
+                        var inicio = String() //[String:String]()
+                        var fim = String() //[String:String]()
                         for z in dia! {
                             switch z.key as! String {
                             case "inicio":
-                                inicio = z.value as! String
+                                inicio = (z.value as? String)!
                             default:
+                                fim = (z.value as? String)!
                                 break
                             }
                         }
                         let horarioChave = y.key as! String
-                        horarios[horarioChave] = ["inicio": inicio]
+                        let arrayDeHorarios = ["inicio" : inicio  , "fim" : fim]
+                        
+                        horarios[horarioChave] = arrayDeHorarios
                         
                     }
                     break
@@ -208,6 +212,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                 cell.txtNome.text!  = cadeira.get("nome")
                                 cell.txtHora.text! = cadeira.getHorarioInicio(dia: diaAtivo)
                                 cell.txtTurno.text! = cadeira.getTurno()
+                            if (horaAtiva >  cadeira.getHorarioInt(dia: diaAtivo, "inicio")) && (horaAtiva < cadeira.getHorarioInt(dia: diaAtivo, "fim")) {
+                                cell.selecionarCelula()
+                            }
                                 return cell
                          }
                         }

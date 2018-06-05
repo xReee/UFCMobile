@@ -28,5 +28,15 @@ class AgendaTableViewCell: UITableViewCell {
     @IBOutlet weak var txtNome: UILabel!
     @IBOutlet weak var txtLocal: UILabel!
     @IBOutlet weak var txtTurno: UILabel!
+    @IBOutlet weak var viewFundo: UIView!
+    @IBOutlet weak var viewBolinhaDentro: UIView!
+    @IBOutlet weak var viewBarra: UIView!
+    
+    func selecionarCelula(){
+        viewBolinhaDentro.backgroundColor = UIColor.verdePrincipal()
+        viewStatus.backgroundColor = UIColor.verdePrincipal()
+        viewFundo.backgroundColor = UIColor.verdePrincipal()
+        viewBarra.backgroundColor = UIColor.verdePrincipal()
+    }
     
 }
