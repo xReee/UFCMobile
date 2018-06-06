@@ -16,18 +16,33 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var diaAtivo = "segunda"
     var horaAtiva = 0
     var diaAtual = "domingo"
+    var lastIndice = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if  diaAtual != "domingo" {
+            diaAtivo = diaAtual
+        }
         
+//        ref = Database.database().reference()
+//        verificarDados()
+        self.agendaTableView.reloadData()
+
         self.diasCollectionView.register( UINib(nibName: "DiasCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "diasCVC")
         self.agendaTableView.register(UINib(nibName:"AgendaTableViewCell", bundle: nil ), forCellReuseIdentifier: "agendaCVC")
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
+        if  diaAtual != "domingo" {
+            diaAtivo = diaAtual
+        }
+        
+        lastIndice = 0
         ref = Database.database().reference()
         verificarDados()
+        self.agendaTableView.reloadData()
+
     }
     
     //# MARK: seleciona cadeira
@@ -38,15 +53,18 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         
         diaAtual = diasInteirosComDomingo[dia-1]
+        if  diaAtual != "domingo" {
+            diaAtivo = diaAtual
+        }
         
         if dia != 1 {
-            diaAtivo = diasInteirosDaSemana[dia-2]
+            //diaAtivo = diasInteirosDaSemana[dia-2]
             horaAtiva = hora
         
             collectionView(diasCollectionView, didSelectItemAt: IndexPath.init(item: dia-2, section: 0))
         }
     
-        diaAtivo = diasInteirosDaSemana[0]
+        //diaAtivo = diasInteirosDaSemana[0]
         
     }
     
@@ -121,8 +139,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             let novaCadeira = Cadeira(codigo: snapshot.key, nome: nome, local: local, horario: horarios)
             self.arrayCadeiras?.append(novaCadeira)
-            self.agendaTableView.reloadData()
             self.selecionarPorDia()
+
+            self.agendaTableView.reloadData()
             
         }) { (error) in
             print(error.localizedDescription)
@@ -155,7 +174,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 return cell
             }
     
+    
+    
             func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+                lastIndice = 0
+                
                 //diseleciona todos
                 for i in collectionView.visibleCells{
                     let cell = i as! DiasCollectionViewCell
@@ -213,7 +236,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     return cell
                 }
                 
-                    for i in indexPath.row...qntCadeiras - 1 {
+                    for i in lastIndice...qntCadeiras - 1 {
                         let cadeiraDaVez = arrayCadeiras![i]
                         if cadeiraDaVez.getHorarioInicio(dia: diaAtivo) != "" {
                                 let cadeira : Cadeira = arrayCadeiras![i]
@@ -221,10 +244,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                 cell.txtNome.text!  = cadeira.get("nome")
                                 cell.txtHora.text! = cadeira.getHorarioInicio(dia: diaAtivo)
                                 cell.txtTurno.text! = cadeira.getTurno()
-                            if (horaAtiva >=  cadeira.getHorarioInt(dia: diaAtivo, "inicio")) && (horaAtiva < cadeira.getHorarioInt(dia: diaAtivo, "fim") && diaAtivo == diaAtual) {
+                            if (horaAtiva >=  cadeira.getHorarioInt(dia: diaAtivo, "inicio")) && (horaAtiva <= cadeira.getHorarioInt(dia: diaAtivo, "fim") && diaAtivo == diaAtual) {
                                 cell.selecionarCelula()
+                            } else {
+                                cell.deselecionarCelula()
                             }
-                                return cell
+                            lastIndice = i+1
+                            return cell
                          }
                         }
                 return cell

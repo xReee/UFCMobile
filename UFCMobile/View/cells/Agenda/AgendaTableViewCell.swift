@@ -38,5 +38,11 @@ class AgendaTableViewCell: UITableViewCell {
         viewFundo.backgroundColor = UIColor.verdePrincipal()
         viewBarra.backgroundColor = UIColor.verdePrincipal()
     }
+    func deselecionarCelula(){
+        viewBolinhaDentro.backgroundColor = UIColor.gray
+        viewStatus.backgroundColor = UIColor.gray
+        viewFundo.backgroundColor = UIColor.gray
+        viewBarra.backgroundColor = UIColor.gray
+    }
     
 }
