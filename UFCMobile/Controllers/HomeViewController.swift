@@ -221,7 +221,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                 cell.txtNome.text!  = cadeira.get("nome")
                                 cell.txtHora.text! = cadeira.getHorarioInicio(dia: diaAtivo)
                                 cell.txtTurno.text! = cadeira.getTurno()
-                            if (horaAtiva >  cadeira.getHorarioInt(dia: diaAtivo, "inicio")) && (horaAtiva < cadeira.getHorarioInt(dia: diaAtivo, "fim") && diaAtivo == diaAtual) {
+                            if (horaAtiva >=  cadeira.getHorarioInt(dia: diaAtivo, "inicio")) && (horaAtiva < cadeira.getHorarioInt(dia: diaAtivo, "fim") && diaAtivo == diaAtual) {
                                 cell.selecionarCelula()
                             }
                                 return cell
