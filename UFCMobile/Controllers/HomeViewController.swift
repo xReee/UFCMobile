@@ -101,8 +101,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             var horarios = [String:[String:String]]()
             
             for i in cadeiraInfo! {
-                
-                
                 switch i.key as! String {
                 case "local":
                     local = i.value as! String

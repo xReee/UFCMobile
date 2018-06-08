@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditarTableViewCell: UITableViewCell {
+class EditarTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,13 +19,16 @@ class EditarTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
-    
-    @IBOutlet weak var txtOpcaoNome: UILabel!
-    @IBOutlet weak var txtField: UITextField!
-    
-    @IBAction func didEndOpcao(_ sender: UITextField) {
-       sender.resignFirstResponder()
+
+    @IBAction func didBegin(_ sender: UITextField) {
+        
     }
     
+    
+    @IBAction func didFinish(_ sender: UITextField!) {
+        sender.resignFirstResponder();
+    }
+    @IBOutlet weak var txtOpcaoNome: UILabel!
+    @IBOutlet weak var txtField: UITextField!
     
 }

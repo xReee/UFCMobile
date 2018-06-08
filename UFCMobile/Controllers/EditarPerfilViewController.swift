@@ -76,8 +76,8 @@ class EditarPerfilViewController: UIViewController, UITextFieldDelegate, UITable
         recuperarDados()
         opcoesTableView.register(UINib(nibName: "EditarTableViewCell", bundle: nil), forCellReuseIdentifier: "opCell")
         opcoesTableView.becomeFirstResponderTextField()
-    }
-
+       
+    }    
     
     override func viewDidLayoutSubviews() {
         imgPerfil.layer.borderWidth = 5
