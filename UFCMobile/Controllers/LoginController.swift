@@ -54,7 +54,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 }
             }
             
-            if !encontrou{
+            if encontrou == false{
                 JSSAlertView().success(
                     self, // the parent view controller of the alert
                     title: "Erro de autenticação",

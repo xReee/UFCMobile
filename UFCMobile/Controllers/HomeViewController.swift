@@ -17,6 +17,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var horaAtiva = 0
     var diaAtual = "domingo"
     var lastIndice = 0
+    let userID = Auth.auth().currentUser?.uid
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +25,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             diaAtivo = diaAtual
         }
         
-//        ref = Database.database().reference()
-//        verificarDados()
         self.agendaTableView.reloadData()
 
         self.diasCollectionView.register( UINib(nibName: "DiasCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "diasCVC")
@@ -37,13 +36,19 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if  diaAtual != "domingo" {
             diaAtivo = diaAtual
         }
-        
+        configureDatabase()
+    }
+    
+    func configureDatabase() {
         lastIndice = 0
         ref = Database.database().reference()
         verificarDados()
         self.agendaTableView.reloadData()
-
+        
+        
+        
     }
+    
     
     //# MARK: seleciona cadeira
     func selecionarPorDia(){
@@ -60,7 +65,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if dia != 1 {
             //diaAtivo = diasInteirosDaSemana[dia-2]
             horaAtiva = hora
-        
+
             collectionView(diasCollectionView, didSelectItemAt: IndexPath.init(item: dia-2, section: 0))
         }
     
@@ -69,22 +74,21 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     
-
+    //#MARK: verifica dados
     func verificarDados(){
         
         arrayCadeiras?.removeAll()
-        
-        
-        let userID = Auth.auth().currentUser?.uid
-        ref.child("users").child(userID!).child("cadeiras").observeSingleEvent(of: .value, with: { (snapshot) in
+     ref.child("users").child(userID!).child("cadeiras").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             
             
-            let cadeiras = snapshot.value as? NSDictionary
-            for i in cadeiras! {
+        if let cadeiras = snapshot.value as? NSDictionary {
+            for i in cadeiras {
                 self.preencheCadeira(i.key as! String)
             }
             
+        }
+        
             
         }) { (error) in
             print(error.localizedDescription)
@@ -131,7 +135,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     }
                     break
                 default:
-                    print("deu ruim")
+                    //professor é o que falta
+                    break
                 }               
             }
             
