@@ -11,24 +11,21 @@ import Firebase
 
 class MensagensViewController:  UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITableViewDelegate, UITableViewDataSource {
 
-    var arrayCadeira: [String]? = [String]()
+    var arrayCadeira: [Cadeira]? = [Cadeira]()
     let userID = Auth.auth().currentUser?.uid
     var ref: DatabaseReference!
-
+    var idCelulaClicada : Cadeira!
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.clvTipoMsg.register(UINib(nibName: "DiasCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "diasCVC")
         self.tbvMensagens.register(UINib(nibName: "ChatTableViewCell", bundle: nil), forCellReuseIdentifier: "chatCell")
+        verificarDados()
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        verificarDados()
-       // tbvMensagens.reloadData()
-    }
-    
+   
     //#MARK: verifica dados
     func verificarDados(){
         ref = Database.database().reference()
@@ -47,13 +44,50 @@ class MensagensViewController:  UIViewController, UICollectionViewDelegate, UICo
     
     func addCadeira(_ cod : String){
         ref.child("cadeiras").child(cod).observeSingleEvent(of: .value, with: { (snapshot) in
-            if let cadeiraInfo = snapshot.value as? NSDictionary {
-                for i in cadeiraInfo {
-                    if (i.key as! String) == "nome" {
-                        self.arrayCadeira?.append(i.value as! String)
+            
+            let cadeiraInfo = snapshot.value as? NSDictionary
+            var local = String()
+            var nome = String()
+            var horarios = [String:[String:String]]()
+            
+            for i in cadeiraInfo! {
+                switch i.key as! String {
+                case "local":
+                    local = i.value as! String
+                    break
+                case "nome":
+                    nome = i.value as! String
+                    break
+                case"horario":
+                    let dias = i.value as? NSDictionary
+                    for y in dias! {
+                        let dia = y.value as? NSDictionary
+                        var inicio = String() //[String:String]()
+                        var fim = String() //[String:String]()
+                        for z in dia! {
+                            switch z.key as! String {
+                            case "inicio":
+                                inicio = (z.value as? String)!
+                            default:
+                                fim = (z.value as? String)!
+                                break
+                            }
+                        }
+                        let horarioChave = y.key as! String
+                        let arrayDeHorarios = ["inicio" : inicio  , "fim" : fim]
+                        
+                        horarios[horarioChave] = arrayDeHorarios
+                        
                     }
+                    break
+                default:
+                    //professor é o que falta
+                    break
                 }
             }
+            
+            let novaCadeira = Cadeira(codigo: snapshot.key, nome: nome, local: local, horario: horarios)
+            self.arrayCadeira?.append(novaCadeira)
 
             self.tbvMensagens.reloadData()
 
@@ -62,6 +96,7 @@ class MensagensViewController:  UIViewController, UICollectionViewDelegate, UICo
         }
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -121,12 +156,28 @@ class MensagensViewController:  UIViewController, UICollectionViewDelegate, UICo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath) as! ChatTableViewCell
-        cell.txtTitulo.text! = arrayCadeira![indexPath.row]
+        cell.txtTitulo.text! = arrayCadeira![indexPath.row].get("nome")
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        idCelulaClicada = arrayCadeira![indexPath.row]
+        performSegue(withIdentifier: "goToConversa", sender: self)
+       
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToConversa" {
+            if let viewDestino = segue.destination as? ConversaViewController {
+                viewDestino.cadeira = idCelulaClicada
+            }
+        }
+        
+    }
+    
     
 }

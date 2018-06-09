@@ -63,13 +63,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
             
         }) { (error) in
             //print(error.localizedDescription)
-
-            
-
         }
-        
-       
-        
     }
     
     override func didReceiveMemoryWarning() {

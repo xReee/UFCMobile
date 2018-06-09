@@ -133,8 +133,8 @@
 				9494779F20B9816800283AA0 /* HomeViewController.swift */,
 				94BA1C6620BC767000CCB209 /* UFCViewController.swift */,
 				948E9B8020BCE09E00A3F92A /* PerfilViewController.swift */,
-				948E9B8520BF9B2800A3F92A /* MensagensViewController.swift */,
 				94C5C9B020C496C000DC69BC /* EditarPerfilViewController.swift */,
+				948E9B8520BF9B2800A3F92A /* MensagensViewController.swift */,
 				94066AF820CAE4A6007D9140 /* ConversaViewController.swift */,
 			);
 			path = Controllers;
