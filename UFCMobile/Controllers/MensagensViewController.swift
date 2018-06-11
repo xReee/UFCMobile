@@ -15,6 +15,7 @@ class MensagensViewController:  UIViewController, UICollectionViewDelegate, UICo
     let userID = Auth.auth().currentUser?.uid
     var ref: DatabaseReference!
     var idCelulaClicada : Cadeira!
+    var collectionViewOpcaoAtiva = "Turmas"
 
     
     override func viewDidLoad() {
@@ -118,6 +119,7 @@ class MensagensViewController:  UIViewController, UICollectionViewDelegate, UICo
         // seleciona o correto
         let cell = collectionView.cellForItem(at: indexPath) as! DiasCollectionViewCell
         cell.setActiveTo(true)
+        collectionViewOpcaoAtiva = cell.lblDias.text!
     }
     
     
@@ -174,6 +176,7 @@ class MensagensViewController:  UIViewController, UICollectionViewDelegate, UICo
         if segue.identifier == "goToConversa" {
             if let viewDestino = segue.destination as? ConversaViewController {
                 viewDestino.cadeira = idCelulaClicada
+                viewDestino.opcaoDeTexto = collectionViewOpcaoAtiva
             }
         }
         

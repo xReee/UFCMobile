@@ -239,7 +239,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     return cell
                 }
                 
-                    for i in lastIndice...qntCadeiras - 1 {
+                    for i in lastIndice..<qntCadeiras {
                         let cadeiraDaVez = arrayCadeiras![i]
                         if cadeiraDaVez.getHorarioInicio(dia: diaAtivo) != "" {
                                 let cadeira : Cadeira = arrayCadeiras![i]

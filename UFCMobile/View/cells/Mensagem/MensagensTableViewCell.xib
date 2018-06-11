@@ -6,34 +6,66 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="KGk-i7-Jjw" customClass="MensagensTableViewCell" customModule="UFCMobile" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="KGk-i7-Jjw" customClass="MensagensTableViewCell" customModule="UFCMobile" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="74.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OY1-vF-F8J">
-                        <rect key="frame" x="10" y="7" width="55" height="55"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_empty" translatesAutoresizingMaskIntoConstraints="NO" id="OY1-vF-F8J">
+                        <rect key="frame" x="10" y="10" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="OY1-vF-F8J" secondAttribute="height" multiplier="1:1" id="MrI-1M-JC9"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1D-vd-gIQ">
-                        <rect key="frame" x="73" y="11" width="231" height="48"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1D-vd-gIQ">
+                        <rect key="frame" x="52" y="30" width="258" height="27"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do e</string>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSG-0k-Lsu">
+                        <rect key="frame" x="52" y="10" width="262" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="eSG-0k-Lsu" firstAttribute="top" secondItem="OY1-vF-F8J" secondAttribute="top" id="17B-h3-aAf"/>
+                    <constraint firstItem="OY1-vF-F8J" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.1" id="1BH-6E-VXj"/>
+                    <constraint firstItem="OY1-vF-F8J" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="8h9-Rn-fMm"/>
+                    <constraint firstItem="eSG-0k-Lsu" firstAttribute="leading" secondItem="OY1-vF-F8J" secondAttribute="trailing" constant="10" id="9uR-ha-o81"/>
+                    <constraint firstAttribute="bottom" secondItem="Q1D-vd-gIQ" secondAttribute="bottom" constant="17.5" id="HgZ-LO-9Py"/>
+                    <constraint firstItem="Q1D-vd-gIQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="Jf5-Lu-5Hi"/>
+                    <constraint firstItem="Q1D-vd-gIQ" firstAttribute="leading" secondItem="OY1-vF-F8J" secondAttribute="trailing" constant="10" id="NZm-bS-Vex"/>
+                    <constraint firstAttribute="trailing" secondItem="Q1D-vd-gIQ" secondAttribute="trailing" constant="10" id="koq-GR-8Wg"/>
+                    <constraint firstItem="OY1-vF-F8J" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="oEA-mA-Y7v"/>
+                    <constraint firstItem="eSG-0k-Lsu" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="10" id="yrR-Db-DRh"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <point key="canvasLocation" x="180" y="47"/>
+            <connections>
+                <outlet property="imgFoto" destination="OY1-vF-F8J" id="ScK-6d-leO"/>
+                <outlet property="lblNomeUsuario" destination="eSG-0k-Lsu" id="Ksu-zy-d1Z"/>
+                <outlet property="txtMensagem" destination="Q1D-vd-gIQ" id="ToP-jE-6Ia"/>
+            </connections>
+            <point key="canvasLocation" x="180" y="-84.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="profile_empty" width="1024" height="1024"/>
+    </resources>
 </document>

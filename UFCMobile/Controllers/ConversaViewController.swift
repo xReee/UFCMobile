@@ -11,12 +11,21 @@ import Firebase
 
 class ConversaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
+    var users = [String:String]()
     var cadeira : Cadeira!
-    var mensagens: [DataSnapshot]!
-    
+    var opcaoDeTexto : String!
+    var mensagens : [Mensagem]! = []
+    var ref : DatabaseReference!
+    let userID = Auth.auth().currentUser?.uid
+    var msglength: NSNumber = 1000
+    fileprivate var _refHandle: DatabaseHandle!
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database().reference()
+        configureDatabase()
         mensagensTableView.register(UINib(nibName: "MensagensTableViewCell", bundle: nil), forCellReuseIdentifier: "mensagemCell")
         txfMsg.delegate = self
 
@@ -26,8 +35,81 @@ class ConversaViewController: UIViewController, UITableViewDelegate, UITableView
         self.navigationItem.title = cadeira?.get("nome")
     }
     
-    func escreverMsg(){
+    func usernameBy(id: String) -> String {
+        if id == userID {return "Você"}
+        if let result = users[id] {
+            return result
+        }
+        return ""
+    }
+    
+    func populateUsers(){
+        ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+            for i in (snapshot.value as? NSDictionary)! {
+                for y in (i.value as? NSDictionary)! {
+                    if (y.key as? String) == "nome" {
+                       self.users[(i.key as! String)] = (y.value as! String)
+                    }
+                }
+            }
+            //snapshot.value(forKey: "nome") as! String
+        }) { (error) in
+            print(error.localizedDescription)
+        }
         
+    }
+    
+    func configureDatabase() {
+        ref = Database.database().reference()
+        
+        //first return everyone
+        populateUsers()
+        
+        // listen for new messages in the firebase database
+        _refHandle = ref.child("mensages").child(cadeira.get("codigo")).child(opcaoDeTexto).observe(DataEventType.value, with: { (snapshot) in
+           self.mensagens.removeAll()
+            if let idMensagens = snapshot.value as? NSDictionary {
+                for x in idMensagens {
+                    let mensagemInfo = x.value as? NSDictionary
+                    var novaMensagem = Mensagem()
+                    for y in mensagemInfo! {
+                        switch y.key as! String {
+                        case "autor":
+                            novaMensagem.autor = (y.value as? String)!
+                            break;
+                        case "data":
+                            novaMensagem.data = (y.value as? String)!
+                            break;
+                        case "hora":
+                            novaMensagem.hora = (y.value as? String)!
+                            break;
+                        case "mensagem":
+                            novaMensagem.mensagem = (y.value as? String)!
+                            break;
+                        default:
+                            print("\(y.value)")
+                        }
+                    }
+                    self.mensagens.append(novaMensagem)
+                    //self.mensagensTableView.insertRows(at: [IndexPath(row: self.mensagens.count - 1, section: 1)], with: .automatic )
+                    
+                }
+                
+                self.mensagensTableView.reloadData()
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+
+    func scrollToBottomMessage() {
+        if mensagens.count == 0 { return }
+        let bottomMessageIndex = IndexPath(row: mensagensTableView.numberOfRows(inSection: 0) - 1, section: 0)
+        mensagensTableView.scrollToRow(at: bottomMessageIndex, at: .bottom, animated: true)
+    }
+    
+    deinit {
+       ref.child("mensages").child(cadeira.get("codigo")).child(opcaoDeTexto).removeObserver(withHandle: _refHandle)
     }
     
     //#MARK: OUTLETS
@@ -37,14 +119,39 @@ class ConversaViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var mensagensTableView: UITableView!
     
     @IBAction func btnEnviar(_ sender: Any) {
+        if !txfMsg.text!.isEmpty {
+            var conteudoMensagem = [String:String]()
+            conteudoMensagem["mensagem"] = txfMsg.text!
+            conteudoMensagem["autor"] = userID
+            
+            //para data
+            let date = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd.MM.yyyy"
+            conteudoMensagem["data"] = formatter.string(from: date)
+            
+            //para hora
+            let calendar = Calendar.current
+            let time=calendar.dateComponents([.hour,.minute,.second], from: Date())
+            conteudoMensagem["hora"] = "\(time.hour!):\(time.minute!):\(time.second!)"
+            
+            //envia para o banco
+            
+                ref.child("mensages").child(cadeira.get("codigo")).child(opcaoDeTexto).childByAutoId().setValue(conteudoMensagem)
+            
+                txfMsg.resignFirstResponder()
+                txfMsg.text! = ""
+
+        }
+        
     }
     
     @IBAction func didBeganMsg(_ sender: UITextField) {
-        moveTextField(sender, moveDistance: 200, up: false)
+        moveTextField(sender, moveDistance: 210, up: false)
     }
     
     @IBAction func didEndMsg(_ sender: UITextField) {
-        moveTextField(sender, moveDistance: 200, up: true)
+        moveTextField(sender, moveDistance: 210, up: true)
     }
     
     @IBAction func tapped(_ sender: Any) {
@@ -59,22 +166,37 @@ class ConversaViewController: UIViewController, UITableViewDelegate, UITableView
 
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if mensagens.count > 0{
+            return mensagens.count
+        }
         return 0
     }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return mensagens.count
-    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = mensagensTableView.dequeueReusableCell(withIdentifier: "mensagemCell", for: indexPath)
-        
+        let cell = mensagensTableView.dequeueReusableCell(withIdentifier: "mensagemCell", for: indexPath) as! MensagensTableViewCell
+        let mensagemAtual = mensagens[indexPath.row]
+        cell.lblNomeUsuario.text! = self.usernameBy(id: mensagemAtual.autor)
+        cell.txtMensagem.text! = mensagemAtual.mensagem
         return cell
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return  true
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // set the maximum length of the message
+        guard let text = txfMsg.text else { return true }
+        let newLength = text.utf16.count + string.utf16.count - range.length
+        return newLength <= msglength.intValue
     }
     
 

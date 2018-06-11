@@ -23,7 +23,7 @@
 		949477A020B9816800283AA0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9494779F20B9816800283AA0 /* HomeViewController.swift */; };
 		94A4DE6920CB468400AE5CB6 /* MensagensTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4DE6720CB468400AE5CB6 /* MensagensTableViewCell.swift */; };
 		94A4DE6A20CB468400AE5CB6 /* MensagensTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94A4DE6820CB468400AE5CB6 /* MensagensTableViewCell.xib */; };
-		94A4DE6C20CB4B5300AE5CB6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4DE6B20CB4B5300AE5CB6 /* Constants.swift */; };
+		94A4DE6C20CB4B5300AE5CB6 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4DE6B20CB4B5300AE5CB6 /* Structs.swift */; };
 		94BA1C6720BC767000CCB209 /* UFCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BA1C6620BC767000CCB209 /* UFCViewController.swift */; };
 		94C066C120A09F1F00294AB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C066C020A09F1F00294AB6 /* AppDelegate.swift */; };
 		94C066C320A09F1F00294AB6 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C066C220A09F1F00294AB6 /* LoginController.swift */; };
@@ -54,7 +54,7 @@
 		9494779F20B9816800283AA0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		94A4DE6720CB468400AE5CB6 /* MensagensTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MensagensTableViewCell.swift; sourceTree = "<group>"; };
 		94A4DE6820CB468400AE5CB6 /* MensagensTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MensagensTableViewCell.xib; sourceTree = "<group>"; };
-		94A4DE6B20CB4B5300AE5CB6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		94A4DE6B20CB4B5300AE5CB6 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		94BA1C6620BC767000CCB209 /* UFCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCViewController.swift; sourceTree = "<group>"; };
 		94C066BD20A09F1F00294AB6 /* UFCMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UFCMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C066C020A09F1F00294AB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				94E7525420C1E0BC0030A5E7 /* Cadeira.swift */,
-				94A4DE6B20CB4B5300AE5CB6 /* Constants.swift */,
+				94A4DE6B20CB4B5300AE5CB6 /* Structs.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -431,7 +431,7 @@
 				948E9B8120BCE09E00A3F92A /* PerfilViewController.swift in Sources */,
 				945CF3AF20C469DC00A66626 /* EditarTableViewCell.swift in Sources */,
 				9494779D20B97E9B00283AA0 /* DiasCollectionViewCell.swift in Sources */,
-				94A4DE6C20CB4B5300AE5CB6 /* Constants.swift in Sources */,
+				94A4DE6C20CB4B5300AE5CB6 /* Structs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
