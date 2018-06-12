@@ -80,9 +80,6 @@ class ConversaViewController: UIViewController, UITableViewDelegate, UITableView
                         case "data":
                             novaMensagem.data = (y.value as? String)!
                             break;
-                        case "hora":
-                            novaMensagem.hora = (y.value as? String)!
-                            break;
                         case "mensagem":
                             novaMensagem.mensagem = (y.value as? String)!
                             break;
@@ -94,7 +91,7 @@ class ConversaViewController: UIViewController, UITableViewDelegate, UITableView
                     //self.mensagensTableView.insertRows(at: [IndexPath(row: self.mensagens.count - 1, section: 1)], with: .automatic )
                     
                 }
-                
+                self.ordenarMensagens()
                 self.mensagensTableView.reloadData()
             }
         }) { (error) in
@@ -112,6 +109,12 @@ class ConversaViewController: UIViewController, UITableViewDelegate, UITableView
        ref.child("mensages").child(cadeira.get("codigo")).child(opcaoDeTexto).removeObserver(withHandle: _refHandle)
     }
     
+    //#MARK: ordenar Mensagens
+    func ordenarMensagens(){
+        mensagens.sort(by: { $0.data.compare($1.data) == .orderedAscending })
+    }
+    
+    
     //#MARK: OUTLETS
     
     @IBOutlet weak var txfMsg: UITextField!
@@ -126,14 +129,7 @@ class ConversaViewController: UIViewController, UITableViewDelegate, UITableView
             
             //para data
             let date = Date()
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd.MM.yyyy"
-            conteudoMensagem["data"] = formatter.string(from: date)
-            
-            //para hora
-            let calendar = Calendar.current
-            let time=calendar.dateComponents([.hour,.minute,.second], from: Date())
-            conteudoMensagem["hora"] = "\(time.hour!):\(time.minute!):\(time.second!)"
+            conteudoMensagem["data"] = "\(date)"
             
             //envia para o banco
             

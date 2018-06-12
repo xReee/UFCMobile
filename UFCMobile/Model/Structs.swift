@@ -13,5 +13,4 @@ struct Mensagem {
     var autor = "name"
     var mensagem = "text"
     var data = "0.0.00"
-    var hora = "00:00:00"
 }

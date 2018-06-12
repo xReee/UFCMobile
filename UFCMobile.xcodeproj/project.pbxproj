@@ -13,6 +13,7 @@
 		940918B020BB456500D0398D /* AgendaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940918AE20BB456500D0398D /* AgendaTableViewCell.xib */; };
 		945CF3AF20C469DC00A66626 /* EditarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945CF3AD20C469DC00A66626 /* EditarTableViewCell.swift */; };
 		945CF3B020C469DC00A66626 /* EditarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 945CF3AE20C469DC00A66626 /* EditarTableViewCell.xib */; };
+		947DFDC820CF48A1009C3954 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947DFDC720CF48A1009C3954 /* Enums.swift */; };
 		948AC65020C0C969008DE8E9 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948AC64E20C0C969008DE8E9 /* ChatTableViewCell.swift */; };
 		948AC65120C0C969008DE8E9 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 948AC64F20C0C969008DE8E9 /* ChatTableViewCell.xib */; };
 		948E9B8120BCE09E00A3F92A /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E9B8020BCE09E00A3F92A /* PerfilViewController.swift */; };
@@ -44,6 +45,7 @@
 		940918AE20BB456500D0398D /* AgendaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgendaTableViewCell.xib; sourceTree = "<group>"; };
 		945CF3AD20C469DC00A66626 /* EditarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarTableViewCell.swift; sourceTree = "<group>"; };
 		945CF3AE20C469DC00A66626 /* EditarTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditarTableViewCell.xib; sourceTree = "<group>"; };
+		947DFDC720CF48A1009C3954 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		948AC64E20C0C969008DE8E9 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		948AC64F20C0C969008DE8E9 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
 		948E9B8020BCE09E00A3F92A /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				94E7525420C1E0BC0030A5E7 /* Cadeira.swift */,
 				94A4DE6B20CB4B5300AE5CB6 /* Structs.swift */,
+				947DFDC720CF48A1009C3954 /* Enums.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				94C066C320A09F1F00294AB6 /* LoginController.swift in Sources */,
 				94C066D320A1382200294AB6 /* Extensions.swift in Sources */,
 				948E9B8620BF9B2800A3F92A /* MensagensViewController.swift in Sources */,
+				947DFDC820CF48A1009C3954 /* Enums.swift in Sources */,
 				948AC65020C0C969008DE8E9 /* ChatTableViewCell.swift in Sources */,
 				94BA1C6720BC767000CCB209 /* UFCViewController.swift in Sources */,
 				948E9B8420BCE8F700A3F92A /* BarraBrancaViewController.swift in Sources */,
