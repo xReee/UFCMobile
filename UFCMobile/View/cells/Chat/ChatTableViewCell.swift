@@ -11,8 +11,8 @@ import UIKit
 class ChatTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imgFoto: UIImageView!
-    @IBOutlet weak var updateView: UIView!
     @IBOutlet weak var txtTitulo: UILabel!
+    @IBOutlet weak var txtUltimaMsg: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,7 +20,6 @@ class ChatTableViewCell: UITableViewCell {
     }
 
     func setupViews(){
-        updateView.layer.cornerRadius = updateView.frame.size.width/2
         imgFoto.layer.cornerRadius = imgFoto.frame.size.width/2
     }
     override func setSelected(_ selected: Bool, animated: Bool) {

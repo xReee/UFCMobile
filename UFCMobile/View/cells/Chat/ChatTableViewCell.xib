@@ -30,14 +30,6 @@
                             <constraint firstAttribute="width" secondItem="WTs-hW-P3i" secondAttribute="height" multiplier="1:1" id="5z3-6M-plY"/>
                         </constraints>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vh7-Oc-4jh">
-                        <rect key="frame" x="12" y="40" width="10" height="10"/>
-                        <color key="backgroundColor" red="0.043137254899999998" green="0.53333333329999999" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="10" id="Ey7-ax-Mah"/>
-                            <constraint firstAttribute="width" secondItem="Vh7-Oc-4jh" secondAttribute="height" multiplier="1:1" id="hKA-Or-aMQ"/>
-                        </constraints>
-                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titulo da Cadeira" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nfY-Eg-9Qo">
                         <rect key="frame" x="92" y="18" width="222" height="25"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -65,13 +57,11 @@
                     <constraint firstItem="WTs-hW-P3i" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.6" id="4Dx-9X-WvO"/>
                     <constraint firstItem="EpE-U0-f1H" firstAttribute="bottom" secondItem="WTs-hW-P3i" secondAttribute="bottom" id="54w-uC-tI0"/>
                     <constraint firstItem="nfY-Eg-9Qo" firstAttribute="leading" secondItem="WTs-hW-P3i" secondAttribute="trailing" constant="8" id="58V-TW-WSn"/>
-                    <constraint firstItem="Vh7-Oc-4jh" firstAttribute="centerY" secondItem="WTs-hW-P3i" secondAttribute="centerY" id="DXk-oE-72h"/>
                     <constraint firstItem="nfY-Eg-9Qo" firstAttribute="top" secondItem="WTs-hW-P3i" secondAttribute="top" id="POz-yP-BPc"/>
                     <constraint firstAttribute="trailing" secondItem="Ypv-5s-hj5" secondAttribute="trailing" id="SVx-7T-m5p"/>
                     <constraint firstItem="WTs-hW-P3i" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="YAW-d6-vI7"/>
                     <constraint firstItem="EpE-U0-f1H" firstAttribute="firstBaseline" secondItem="nfY-Eg-9Qo" secondAttribute="baseline" constant="16" symbolType="layoutAnchor" id="bje-eQ-ixO"/>
                     <constraint firstItem="EpE-U0-f1H" firstAttribute="centerX" secondItem="nfY-Eg-9Qo" secondAttribute="centerX" id="bqW-1m-44R"/>
-                    <constraint firstItem="WTs-hW-P3i" firstAttribute="leading" secondItem="Vh7-Oc-4jh" secondAttribute="trailing" constant="8" id="eXU-9F-XIE"/>
                     <constraint firstItem="EpE-U0-f1H" firstAttribute="width" secondItem="nfY-Eg-9Qo" secondAttribute="width" id="hsX-of-lol"/>
                     <constraint firstItem="Ypv-5s-hj5" firstAttribute="leading" secondItem="nfY-Eg-9Qo" secondAttribute="trailing" constant="8" id="mEg-cS-Nbp"/>
                     <constraint firstAttribute="trailing" secondItem="Ypv-5s-hj5" secondAttribute="trailing" id="t0U-9b-52a"/>
@@ -82,7 +72,7 @@
             <connections>
                 <outlet property="imgFoto" destination="WTs-hW-P3i" id="oRN-M1-ANG"/>
                 <outlet property="txtTitulo" destination="nfY-Eg-9Qo" id="PVa-Cr-Peq"/>
-                <outlet property="updateView" destination="Vh7-Oc-4jh" id="JBl-jN-MuT"/>
+                <outlet property="txtUltimaMsg" destination="EpE-U0-f1H" id="oTI-Yb-Ra9"/>
             </connections>
             <point key="canvasLocation" x="71.5" y="136.5"/>
         </tableViewCell>

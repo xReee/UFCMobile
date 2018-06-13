@@ -17,7 +17,7 @@ class MensagensViewController:  UIViewController, UICollectionViewDelegate, UICo
     var idCelulaClicada : Cadeira!
     var collectionViewOpcaoAtiva = "Turmas"
     fileprivate var _refHandle: DatabaseHandle!
-    var ultimasMensagens : [String:String]?
+    var ultimasMensagens : [String:String]? = [String:String]()
     
 
     
@@ -34,6 +34,7 @@ class MensagensViewController:  UIViewController, UICollectionViewDelegate, UICo
     func verificarDados(){
         ref = Database.database().reference()
         arrayCadeira?.removeAll()
+        ultimasMensagens?.removeAll()
         ref.child("users").child(userID!).child("cadeiras").observeSingleEvent(of: .value, with: { (snapshot) in
             if let cadeiras = snapshot.value as? NSDictionary {
                 for i in cadeiras {
@@ -92,7 +93,7 @@ class MensagensViewController:  UIViewController, UICollectionViewDelegate, UICo
             
             let novaCadeira = Cadeira(codigo: snapshot.key, nome: nome, local: local, horario: horarios)
             self.arrayCadeira?.append(novaCadeira)
-
+            self.retornarUltimasMensagensDaCadeira(novaCadeira)
             self.tbvMensagens.reloadData()
 
         }) { (error) in
@@ -123,6 +124,8 @@ class MensagensViewController:  UIViewController, UICollectionViewDelegate, UICo
         let cell = collectionView.cellForItem(at: indexPath) as! DiasCollectionViewCell
         cell.setActiveTo(true)
         collectionViewOpcaoAtiva = cell.lblDias.text!
+        
+        self.verificarDados()
     }
     
     
@@ -161,11 +164,14 @@ class MensagensViewController:  UIViewController, UICollectionViewDelegate, UICo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath) as! ChatTableViewCell
-        cell.txtTitulo.text! = arrayCadeira![indexPath.row].get("nome")
-        if ultimasMensagens != nil {
-           let ultimaMensagemDaCadeira = ultimasMensagens![arrayCadeira![indexPath.row].get("nome")]
-            cell.textLabel?.text! = ultimaMensagemDaCadeira!
+        let nomeDaCadeiraDeAgora = arrayCadeira![indexPath.row].get("nome")
+        cell.txtTitulo.text! = nomeDaCadeiraDeAgora
+        if let ultimaMensagemDaCadeira = ultimasMensagens![nomeDaCadeiraDeAgora]{
+            cell.txtUltimaMsg?.text! = ultimaMensagemDaCadeira
+        } else {
+            cell.txtUltimaMsg.text = " "
         }
+        
         
         return cell
     }
@@ -190,10 +196,9 @@ class MensagensViewController:  UIViewController, UICollectionViewDelegate, UICo
         
     }
     
-    func retornarUltimasMensagensDaCadeira() {
+    func retornarUltimasMensagensDaCadeira(_ cadeira : Cadeira) {
         ref = Database.database().reference()
         // listen for new messages in the firebase database
-        for cadeira in arrayCadeira! {
             var mensagensCadeira = [Mensagem]()
             _refHandle = ref.child("mensages").child(cadeira.get("codigo")).child(collectionViewOpcaoAtiva).observe(DataEventType.value, with: { (snapshot) in
                 if let idMensagens = snapshot.value as? NSDictionary {
@@ -214,15 +219,16 @@ class MensagensViewController:  UIViewController, UICollectionViewDelegate, UICo
                         mensagensCadeira.append(novaMensagem)
                     }
                     mensagensCadeira.sort(by: { $0.data.compare($1.data) == .orderedAscending })
+                    let ultimaMsg = mensagensCadeira.last!
+                    let cadeiraAtual : Cadeira = cadeira
+                    self.ultimasMensagens?[cadeiraAtual.get("nome")] = ultimaMsg.mensagem
+                    self.tbvMensagens.reloadData()
                 }
             }) { (error) in
                 print(error.localizedDescription)
             }
             
-            let ultimaMsg = mensagensCadeira.last!
-            let cadeiraAtual : Cadeira = cadeira
-            ultimasMensagens![cadeiraAtual.get("nome")] = ultimaMsg.mensagem
-        }
+       
     }
     
     deinit {

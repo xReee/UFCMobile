@@ -93,6 +93,7 @@ class ConversaViewController: UIViewController, UITableViewDelegate, UITableView
                 }
                 self.ordenarMensagens()
                 self.mensagensTableView.reloadData()
+                self.scrollToBottomMessage()
             }
         }) { (error) in
             print(error.localizedDescription)

@@ -80,11 +80,19 @@ class LoginController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func didBeganSenha(_ sender: UITextField) {
-        moveTextField(sender, moveDistance: 35, up: false)
+        moveTextField(sender, moveDistance: Int(self.view.frame.height/5) , up: false)
     }
     
     @IBAction func didEndSenha(_ sender: UITextField) {
-        moveTextField(sender, moveDistance: 35, up: true)
+        moveTextField(sender, moveDistance: Int(self.view.frame.height/5) , up: true)
+    }
+    
+    @IBAction func didBeganMatricula(_ sender: UITextField) {
+        moveTextField(sender, moveDistance: Int(self.view.frame.height/6) , up: false)
+    }
+    
+    @IBAction func didEndMatricula(_ sender: UITextField) {
+        moveTextField(sender, moveDistance: Int(self.view.frame.height/6) , up: true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
