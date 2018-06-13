@@ -10,19 +10,29 @@ import UIKit
 import Firebase
 import JSSAlertView
     
-class EditarPerfilViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    class EditarPerfilViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var ref : DatabaseReference!
     let userID = Auth.auth().currentUser?.uid
 
     var dados = [String: String]()
     
+    
+    //#MARK: OUTLETS
     @IBOutlet weak var txfNome: UITextField!
     @IBOutlet weak var imgPerfil: UIImageView!
+    @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet weak var segSexo: UISegmentedControl!
+    
     let imagePicker = UIImagePickerController()
 
     @IBAction func btnCancelar(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func btnFoto(_ sender: UIButton) {
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate =  self
+        self.present(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func btnConfirmar(_ sender: UIButton) {
@@ -33,26 +43,32 @@ class EditarPerfilViewController: UIViewController, UITextFieldDelegate, UIImage
                 title: "Erro!",
                 text: "Por favor verifique se esqueceu de inserir dados em algum dos campos")
         } else {
-
-        ref.child("users").child(userID!).updateChildValues(["nome": self.txfNome.text!])
-
-//        let key = ref.child("users").child(userID)().key
-//        let perfil = ["nascimento": txt,
-//                    "nome": title,
-//                    "sexo": body]
-//        let childUpdates = ["/user/\(key)": post,
-//                            "/user-posts/\(userID)/\(key)/": post]
-//        ref.updateChildValues(childUpdates)
+            ref.child("users").child(userID!).updateChildValues(["nome": self.txfNome.text!])
+            
+            if (txtEmail.text?.isEmpty)! {
+                ref.child("users").child(userID!).updateChildValues(["email": ""])
+            } else {
+                ref.child("users").child(userID!).updateChildValues(["email": self.txtEmail.text!])
+            }
+            let sexo =  self.segSexo.selectedSegmentIndex
+            switch sexo {
+            case 0:
+                ref.child("users").child(userID!).updateChildValues(["sexo": "M"])
+                break
+            case 1:
+                ref.child("users").child(userID!).updateChildValues(["sexo": "F"])
+                break
+            default:
+                ref.child("users").child(userID!).updateChildValues(["sexo": "-"])
+                break
+            }
+            
+            
             self.dismiss(animated: true, completion: nil)
             
         }
     }
     
-    @IBAction func btnFoto(_ sender: UIButton) {
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.delegate =  self
-        self.present(imagePicker, animated: true, completion: nil)
-    }
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -66,6 +82,8 @@ class EditarPerfilViewController: UIViewController, UITextFieldDelegate, UIImage
     override func viewDidLoad() {
         super.viewDidLoad()
         recuperarDados()
+        txtEmail.delegate = self
+        txfNome.delegate = self
         
     }    
     
@@ -81,10 +99,27 @@ class EditarPerfilViewController: UIViewController, UITextFieldDelegate, UIImage
     }
     
     @IBAction func grcTapOut(_ sender: UITapGestureRecognizer) {
-//         opcoesTableView.becomeFirstResponderTextField()
+        txtEmail.resignFirstResponder()
+        txfNome.resignFirstResponder()
     }
     
+    //nome
+    @IBAction func txtNomedDidBegin(_ sender: UITextField) {
+        moveTextField(sender, moveDistance: Int(self.viewSize("height")/6) , up: false)
+    }
+    @IBAction func txtNomedDidEnd(_ sender: UITextField) {
+        sender.resignFirstResponder()
+        moveTextField(sender, moveDistance: Int(self.viewSize("height")/6) , up: true)
+    }
     
+    //email
+    @IBAction func txtEmailDidBegin(_ sender: UITextField) {
+        moveTextField(sender, moveDistance: Int(self.viewSize("height")/6) , up: false)
+    }
+    @IBAction func txtEmaildDidEnd(_ sender: UITextField) {
+        sender.resignFirstResponder()
+        moveTextField(sender, moveDistance: Int(self.viewSize("height")/6) , up: true)
+    }
     func recuperarDados(){
         ref = Database.database().reference()
         
@@ -95,14 +130,27 @@ class EditarPerfilViewController: UIViewController, UITextFieldDelegate, UIImage
             for i in userInfo! {
                 switch i.key as! String {
                 case "nome":
-//                    self.dados["nome"] =  i.value as? String
                     self.txfNome.text! = (i.value as? String)!
                     break
                 case "nascimento":
-                    self.dados["nascimento"] =  i.value as? String
+                    //self.dados["nascimento"] =  i.value as? String
                     break
                 case "sexo":
-                    self.dados["sexo"] =  i.value as? String
+                    let sexo =  i.value as? String
+                    switch sexo {
+                    case "F":
+                        self.segSexo.selectedSegmentIndex = 1
+                            break
+                    case "M":
+                        self.segSexo.selectedSegmentIndex = 0
+                        break
+                    default:
+                        self.segSexo.selectedSegmentIndex = 2
+                        break
+                    }
+                    break
+                case "email":
+                    self.txtEmail.text! = (i.value as? String)!
                     break
                 default:
                     break
@@ -116,5 +164,8 @@ class EditarPerfilViewController: UIViewController, UITextFieldDelegate, UIImage
       
     }
 
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return  true
+    }
 }

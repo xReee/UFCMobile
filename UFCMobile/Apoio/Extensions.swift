@@ -24,7 +24,18 @@ extension UIViewController {
         self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
         UIView.commitAnimations()
     }
+    
+    func viewSize(_ qualDeles: String) -> CGFloat{
+        if qualDeles == "height" {
+            return self.view.frame.height
+        } else {
+            return self.view.frame.width
+        }
+    }
+    
 }
+
+
 
 
 extension UIColor {
