@@ -34,8 +34,9 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 return
             }
             
+            encontrou = false
+            
             for i in users{
-                encontrou = false
                 let conteudoUser = i.value as? NSDictionary
                 let matricula = conteudoUser!["matricula"] as? String
                 if self.txtMatricula.text == matricula && !self.txtSenha.isEqual("") {

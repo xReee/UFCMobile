@@ -100,6 +100,7 @@ class ConversaViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
 
+    //#MARK: Scroll
     func scrollToBottomMessage() {
         if mensagens.count == 0 { return }
         let bottomMessageIndex = IndexPath(row: mensagensTableView.numberOfRows(inSection: 0) - 1, section: 0)

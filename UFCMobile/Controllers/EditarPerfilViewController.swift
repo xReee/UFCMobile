@@ -8,27 +8,44 @@
 
 import UIKit
 import Firebase
-
-class EditarPerfilViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+import JSSAlertView
+    
+class EditarPerfilViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var ref : DatabaseReference!
     let userID = Auth.auth().currentUser?.uid
 
     var dados = [String: String]()
     
+    @IBOutlet weak var txfNome: UITextField!
     @IBOutlet weak var imgPerfil: UIImageView!
     let imagePicker = UIImagePickerController()
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dados.count
-    }
+
     @IBAction func btnCancelar(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func btnConfirmar(_ sender: UIButton) {
-       // self.ref.child("users").child(userID!).setValue(["nascimento": "10/10/01"])
-        self.dismiss(animated: true, completion: nil)
+
+        if (txfNome.text?.isEmpty)! {
+            JSSAlertView().success(
+                self, // the parent view controller of the alert
+                title: "Erro!",
+                text: "Por favor verifique se esqueceu de inserir dados em algum dos campos")
+        } else {
+
+        ref.child("users").child(userID!).updateChildValues(["nome": self.txfNome.text!])
+
+//        let key = ref.child("users").child(userID)().key
+//        let perfil = ["nascimento": txt,
+//                    "nome": title,
+//                    "sexo": body]
+//        let childUpdates = ["/user/\(key)": post,
+//                            "/user-posts/\(userID)/\(key)/": post]
+//        ref.updateChildValues(childUpdates)
+            self.dismiss(animated: true, completion: nil)
+            
+        }
     }
     
     @IBAction func btnFoto(_ sender: UIButton) {
@@ -37,28 +54,6 @@ class EditarPerfilViewController: UIViewController, UITextFieldDelegate, UITable
         self.present(imagePicker, animated: true, completion: nil)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = opcoesTableView.dequeueReusableCell(withIdentifier: "opCell") as! EditarTableViewCell
-        switch indexPath.row {
-        case 0:
-            cell.txtOpcaoNome.text! = "Nome: "
-            cell.txtField.text! = dados["nome"]!
-        case 1:
-            cell.txtOpcaoNome.text! = "Sexo: "
-            cell.txtField.text! = dados["sexo"]!
-        case 2:
-            cell.txtOpcaoNome.text! = "Data de Nascimento: "
-            cell.txtField.text! = dados["nascimento"]!
-        default:
-            cell.txtOpcaoNome.text! = "nada"
-            cell.txtField.text! = "nada"
-        }
-        
-        
-       
-        
-        return cell
-    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         imagePicker.dismiss(animated: true, completion: nil)
@@ -68,15 +63,10 @@ class EditarPerfilViewController: UIViewController, UITextFieldDelegate, UITable
         }
     }
     
-    
-    @IBOutlet weak var opcoesTableView : UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         recuperarDados()
-        opcoesTableView.register(UINib(nibName: "EditarTableViewCell", bundle: nil), forCellReuseIdentifier: "opCell")
-        opcoesTableView.becomeFirstResponderTextField()
-       
+        
     }    
     
     override func viewDidLayoutSubviews() {
@@ -91,7 +81,7 @@ class EditarPerfilViewController: UIViewController, UITextFieldDelegate, UITable
     }
     
     @IBAction func grcTapOut(_ sender: UITapGestureRecognizer) {
-         opcoesTableView.becomeFirstResponderTextField()
+//         opcoesTableView.becomeFirstResponderTextField()
     }
     
     
@@ -105,7 +95,8 @@ class EditarPerfilViewController: UIViewController, UITextFieldDelegate, UITable
             for i in userInfo! {
                 switch i.key as! String {
                 case "nome":
-                    self.dados["nome"] =  i.value as? String
+//                    self.dados["nome"] =  i.value as? String
+                    self.txfNome.text! = (i.value as? String)!
                     break
                 case "nascimento":
                     self.dados["nascimento"] =  i.value as? String
@@ -117,8 +108,7 @@ class EditarPerfilViewController: UIViewController, UITextFieldDelegate, UITable
                     break
                 }
             }
-              self.opcoesTableView.reloadData()
-            
+                
         }) { (error) in
             print(error.localizedDescription)
         }

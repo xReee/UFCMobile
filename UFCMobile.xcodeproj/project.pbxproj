@@ -11,8 +11,6 @@
 		94066AF920CAE4A6007D9140 /* ConversaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94066AF820CAE4A6007D9140 /* ConversaViewController.swift */; };
 		940918AF20BB456500D0398D /* AgendaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940918AD20BB456500D0398D /* AgendaTableViewCell.swift */; };
 		940918B020BB456500D0398D /* AgendaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940918AE20BB456500D0398D /* AgendaTableViewCell.xib */; };
-		945CF3AF20C469DC00A66626 /* EditarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945CF3AD20C469DC00A66626 /* EditarTableViewCell.swift */; };
-		945CF3B020C469DC00A66626 /* EditarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 945CF3AE20C469DC00A66626 /* EditarTableViewCell.xib */; };
 		947DFDC820CF48A1009C3954 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947DFDC720CF48A1009C3954 /* Enums.swift */; };
 		948AC65020C0C969008DE8E9 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948AC64E20C0C969008DE8E9 /* ChatTableViewCell.swift */; };
 		948AC65120C0C969008DE8E9 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 948AC64F20C0C969008DE8E9 /* ChatTableViewCell.xib */; };
@@ -43,8 +41,6 @@
 		94066AF820CAE4A6007D9140 /* ConversaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversaViewController.swift; sourceTree = "<group>"; };
 		940918AD20BB456500D0398D /* AgendaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaTableViewCell.swift; sourceTree = "<group>"; };
 		940918AE20BB456500D0398D /* AgendaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgendaTableViewCell.xib; sourceTree = "<group>"; };
-		945CF3AD20C469DC00A66626 /* EditarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarTableViewCell.swift; sourceTree = "<group>"; };
-		945CF3AE20C469DC00A66626 /* EditarTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditarTableViewCell.xib; sourceTree = "<group>"; };
 		947DFDC720CF48A1009C3954 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		948AC64E20C0C969008DE8E9 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		948AC64F20C0C969008DE8E9 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
@@ -110,21 +106,11 @@
 			path = Agenda;
 			sourceTree = "<group>";
 		};
-		945CF3AC20C4696E00A66626 /* Editar */ = {
-			isa = PBXGroup;
-			children = (
-				945CF3AD20C469DC00A66626 /* EditarTableViewCell.swift */,
-				945CF3AE20C469DC00A66626 /* EditarTableViewCell.xib */,
-			);
-			path = Editar;
-			sourceTree = "<group>";
-		};
 		945DC87720B8829200747F50 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				94E7525420C1E0BC0030A5E7 /* Cadeira.swift */,
 				94A4DE6B20CB4B5300AE5CB6 /* Structs.swift */,
-				947DFDC720CF48A1009C3954 /* Enums.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -147,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				94F84AA420C1776400FDF96D /* GoogleService-Info.plist */,
+				947DFDC720CF48A1009C3954 /* Enums.swift */,
 				94C066D220A1382200294AB6 /* Extensions.swift */,
 				94C066C020A09F1F00294AB6 /* AppDelegate.swift */,
 			);
@@ -177,7 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				94A4DE6420CB3ED200AE5CB6 /* Mensagem */,
-				945CF3AC20C4696E00A66626 /* Editar */,
 				948AC64B20C0C92F008DE8E9 /* Chat */,
 				940918AA20BB3BB600D0398D /* Agenda */,
 				940918A920BB3BAA00D0398D /* Dias */,
@@ -300,7 +286,6 @@
 				948AC65120C0C969008DE8E9 /* ChatTableViewCell.xib in Resources */,
 				94C066C820A09F1F00294AB6 /* Assets.xcassets in Resources */,
 				94C066C620A09F1F00294AB6 /* Main.storyboard in Resources */,
-				945CF3B020C469DC00A66626 /* EditarTableViewCell.xib in Resources */,
 				940918B020BB456500D0398D /* AgendaTableViewCell.xib in Resources */,
 				94A4DE6A20CB468400AE5CB6 /* MensagensTableViewCell.xib in Resources */,
 				9494779E20B97E9B00283AA0 /* DiasCollectionViewCell.xib in Resources */,
@@ -433,7 +418,6 @@
 				94C066C120A09F1F00294AB6 /* AppDelegate.swift in Sources */,
 				94066AF920CAE4A6007D9140 /* ConversaViewController.swift in Sources */,
 				948E9B8120BCE09E00A3F92A /* PerfilViewController.swift in Sources */,
-				945CF3AF20C469DC00A66626 /* EditarTableViewCell.swift in Sources */,
 				9494779D20B97E9B00283AA0 /* DiasCollectionViewCell.swift in Sources */,
 				94A4DE6C20CB4B5300AE5CB6 /* Structs.swift in Sources */,
 			);
