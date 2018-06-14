@@ -23,7 +23,8 @@ import JSSAlertView
     @IBOutlet weak var imgPerfil: UIImageView!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var segSexo: UISegmentedControl!
-    
+    @IBOutlet weak var pkrNascimento: UIDatePicker!
+        
     let imagePicker = UIImagePickerController()
 
     @IBAction func btnCancelar(_ sender: UIButton) {
@@ -36,7 +37,8 @@ import JSSAlertView
     }
     
     @IBAction func btnConfirmar(_ sender: UIButton) {
-
+        print(pkrNascimento.date)
+        sairDoTeclado()
         if (txfNome.text?.isEmpty)! {
             JSSAlertView().success(
                 self, // the parent view controller of the alert
@@ -63,13 +65,17 @@ import JSSAlertView
                 break
             }
             
-            
+            let nascimento : String = "\(pkrNascimento.date)"
+            ref.child("users").child(userID!).updateChildValues(["nascimento": nascimento])
             self.dismiss(animated: true, completion: nil)
             
         }
     }
     
-    
+        func sairDoTeclado() {
+            txtEmail.resignFirstResponder()
+            txfNome.resignFirstResponder()
+        }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         imagePicker.dismiss(animated: true, completion: nil)
@@ -99,8 +105,7 @@ import JSSAlertView
     }
     
     @IBAction func grcTapOut(_ sender: UITapGestureRecognizer) {
-        txtEmail.resignFirstResponder()
-        txfNome.resignFirstResponder()
+        sairDoTeclado()
     }
     
     //nome
@@ -134,6 +139,15 @@ import JSSAlertView
                     break
                 case "nascimento":
                     //self.dados["nascimento"] =  i.value as? String
+                    let dateFormatter = DateFormatter()
+//                    dateFormatter.dateFormat = "yyyy-mm-dd HH:mm:ss" //Your date format
+//                    dateFormatter.timeZone = TimeZone(abbreviation: "+zzzz")
+                    
+                    dateFormatter.dateFormat = "yyyy-mm-dd hh:mm:ss Z"
+                    dateFormatter.isLenient = true
+                    if let nascimento : Date = dateFormatter.date(from: (i.value as? String)!){
+                        self.pkrNascimento.setDate(nascimento, animated: true)
+                    }
                     break
                 case "sexo":
                     let sexo =  i.value as? String

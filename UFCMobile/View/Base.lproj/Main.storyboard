@@ -421,6 +421,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imgPerfil" destination="HRV-3g-VL4" id="3l8-OL-Cr6"/>
+                        <outlet property="pkrNascimento" destination="Qht-U0-kNl" id="XXt-Uo-Jka"/>
                         <outlet property="segSexo" destination="SKw-Rv-xhv" id="HDG-Az-Yys"/>
                         <outlet property="txfNome" destination="MCu-8H-03D" id="UXX-CF-YMU"/>
                         <outlet property="txtEmail" destination="cIv-bd-zqV" id="9oD-O4-OBH"/>
