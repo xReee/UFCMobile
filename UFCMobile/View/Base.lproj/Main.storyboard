@@ -190,7 +190,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0v1-xS-bN1">
                                         <rect key="frame" x="120" y="210" width="80" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="sKA-f2-qgb"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="sKA-f2-qgb"/>
                                         </constraints>
                                         <color key="tintColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                                         <state key="normal" title="editar"/>
@@ -198,6 +198,10 @@
                                             <segue destination="1UT-OU-fRS" kind="show" id="KpD-rw-sVo"/>
                                         </connections>
                                     </button>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="el0-Lk-yRF">
+                                        <rect key="frame" x="150.5" y="67" width="20" height="37"/>
+                                        <color key="tintColor" red="0.043137254899999998" green="0.53333333329999999" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.043137254899999998" green="0.53333333329999999" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -205,8 +209,11 @@
                                     <constraint firstItem="0v1-xS-bN1" firstAttribute="top" secondItem="zwL-Mv-UhM" secondAttribute="bottom" constant="5" id="Cdf-Eg-1Ea"/>
                                     <constraint firstItem="TSW-S7-K8N" firstAttribute="centerX" secondItem="zr7-Um-pdk" secondAttribute="centerX" id="Eec-U4-dPo"/>
                                     <constraint firstItem="zr7-Um-pdk" firstAttribute="centerX" secondItem="Chm-n7-d53" secondAttribute="centerX" id="HsY-xU-oN8"/>
+                                    <constraint firstItem="el0-Lk-yRF" firstAttribute="width" secondItem="zr7-Um-pdk" secondAttribute="height" multiplier="5:32" id="IBx-i5-An3"/>
+                                    <constraint firstItem="el0-Lk-yRF" firstAttribute="centerY" secondItem="zr7-Um-pdk" secondAttribute="centerY" id="Idx-Sr-u3x"/>
                                     <constraint firstItem="zr7-Um-pdk" firstAttribute="centerY" secondItem="Chm-n7-d53" secondAttribute="centerY" multiplier="0.65" id="LHq-G1-7nF"/>
                                     <constraint firstItem="TSW-S7-K8N" firstAttribute="top" secondItem="zr7-Um-pdk" secondAttribute="bottom" constant="7" id="VUW-n3-7Ft"/>
+                                    <constraint firstItem="el0-Lk-yRF" firstAttribute="centerX" secondItem="zr7-Um-pdk" secondAttribute="centerX" id="WfZ-D4-KUr"/>
                                     <constraint firstItem="zwL-Mv-UhM" firstAttribute="top" secondItem="TSW-S7-K8N" secondAttribute="bottom" constant="5" id="cC0-hD-uk5"/>
                                     <constraint firstItem="0v1-xS-bN1" firstAttribute="centerX" secondItem="zwL-Mv-UhM" secondAttribute="centerX" id="obw-vW-HVU"/>
                                     <constraint firstItem="zr7-Um-pdk" firstAttribute="width" secondItem="Chm-n7-d53" secondAttribute="width" multiplier="0.4" id="rCM-0j-W6C"/>
@@ -259,6 +266,7 @@
                     <connections>
                         <outlet property="btnEditar" destination="0v1-xS-bN1" id="Mqo-OB-tZL"/>
                         <outlet property="imgPerfil" destination="zr7-Um-pdk" id="O7q-rF-6Ro"/>
+                        <outlet property="indicadorDownload" destination="el0-Lk-yRF" id="JOj-mA-uTw"/>
                         <outlet property="txtMatricula" destination="TSW-S7-K8N" id="qgP-ta-get"/>
                         <outlet property="txtNome" destination="zwL-Mv-UhM" id="ysh-Ig-IVq"/>
                     </connections>
@@ -294,13 +302,19 @@
                                             <action selector="btnFoto:" destination="02s-lz-bWh" eventType="touchUpInside" id="5hJ-kJ-TOi"/>
                                         </connections>
                                     </button>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="iSk-1g-uMe">
+                                        <rect key="frame" x="142" y="40" width="37" height="37"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.043137254899999998" green="0.53333333329999999" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="PJ4-WB-QCI" firstAttribute="width" secondItem="9CH-6t-1xN" secondAttribute="width" multiplier="0.8" id="4c5-0U-zPe"/>
                                     <constraint firstItem="HRV-3g-VL4" firstAttribute="top" secondItem="9CH-6t-1xN" secondAttribute="top" constant="20" id="E8B-zB-vkK"/>
+                                    <constraint firstItem="iSk-1g-uMe" firstAttribute="width" secondItem="HRV-3g-VL4" secondAttribute="height" multiplier="37:76" id="Mbw-72-9he"/>
                                     <constraint firstItem="HRV-3g-VL4" firstAttribute="centerX" secondItem="9CH-6t-1xN" secondAttribute="centerX" id="NRa-E9-3S5"/>
                                     <constraint firstItem="HRV-3g-VL4" firstAttribute="height" secondItem="9CH-6t-1xN" secondAttribute="height" multiplier="0.5" id="RQX-ZB-cRo"/>
+                                    <constraint firstItem="iSk-1g-uMe" firstAttribute="centerX" secondItem="HRV-3g-VL4" secondAttribute="centerX" id="VaT-Iw-tNf"/>
+                                    <constraint firstItem="iSk-1g-uMe" firstAttribute="centerY" secondItem="HRV-3g-VL4" secondAttribute="centerY" id="dlM-KJ-16k"/>
                                     <constraint firstItem="PJ4-WB-QCI" firstAttribute="bottom" secondItem="HRV-3g-VL4" secondAttribute="bottom" constant="40" id="kdQ-Vs-gmk"/>
                                     <constraint firstItem="PJ4-WB-QCI" firstAttribute="centerX" secondItem="9CH-6t-1xN" secondAttribute="centerX" id="xYd-9z-gQU"/>
                                 </constraints>
@@ -421,6 +435,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imgPerfil" destination="HRV-3g-VL4" id="3l8-OL-Cr6"/>
+                        <outlet property="indicadorDownload" destination="iSk-1g-uMe" id="iai-pm-Ydw"/>
                         <outlet property="pkrNascimento" destination="Qht-U0-kNl" id="XXt-Uo-Jka"/>
                         <outlet property="segSexo" destination="SKw-Rv-xhv" id="HDG-Az-Yys"/>
                         <outlet property="txfNome" destination="MCu-8H-03D" id="UXX-CF-YMU"/>
@@ -521,7 +536,7 @@
             <objects>
                 <viewController id="fdJ-jW-2bz" customClass="HomeViewController" customModule="UFCMobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FW3-3N-rwA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="452"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tEk-fA-EdY">
@@ -543,7 +558,7 @@
                                 </connections>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BjJ-na-Uhk">
-                                <rect key="frame" x="0.0" y="50" width="320" height="356"/>
+                                <rect key="frame" x="0.0" y="50" width="320" height="353"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="fdJ-jW-2bz" id="4Ni-eC-60F"/>
@@ -580,7 +595,7 @@
             <objects>
                 <tableViewController id="6vp-fD-dx4" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vjk-bF-2rG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="406"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="403"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
@@ -603,7 +618,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QJ1-QT-2pd">
-                                <rect key="frame" x="0.0" y="113" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="116" width="320" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ZGS-aN-ZOO"/>
@@ -621,7 +636,7 @@
                                 </connections>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zli-ic-AV7">
-                                <rect key="frame" x="0.0" y="163" width="320" height="356"/>
+                                <rect key="frame" x="0.0" y="166" width="320" height="353"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="IL6-R2-0gP">
@@ -692,7 +707,7 @@
                     <tabBarItem key="tabBarItem" title="Home" image="home-icon" id="Cyc-Qq-kSc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="yoG-QB-cp4">
-                        <rect key="frame" x="0.0" y="20" width="320" height="93"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -714,7 +729,7 @@
                     <tabBarItem key="tabBarItem" title="Configurações" image="conf-icon" id="ra0-T5-cvZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="ul8-67-GIh">
-                        <rect key="frame" x="0.0" y="20" width="320" height="93"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                     </navigationBar>
@@ -734,7 +749,7 @@
                     <tabBarItem key="tabBarItem" title="Mensagens" image="chat-icon" id="y67-IF-dKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="0rQ-7t-eRC">
-                        <rect key="frame" x="0.0" y="20" width="320" height="93"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                     </navigationBar>

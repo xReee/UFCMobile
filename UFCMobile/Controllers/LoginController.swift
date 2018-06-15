@@ -44,6 +44,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
                     let email = conteudoUser!["emailAuth"] as? String
                     Auth.auth().signIn(withEmail: email!, password: self.txtSenha.text!) { (user, error) in
                         if (error == nil) {
+                            self.sairDoTeclado()
                             self.performSegue(withIdentifier: "gotoLogar", sender: nil)
                         } else {
                             JSSAlertView().success(
@@ -76,8 +77,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtSenha : UITextField!
     
     @IBAction func grcTapOut(_ sender: UITapGestureRecognizer) {
-        txtMatricula.resignFirstResponder()
-        txtSenha.resignFirstResponder()
+       sairDoTeclado()
     }
     
     @IBAction func didBeganSenha(_ sender: UITextField) {
@@ -95,6 +95,12 @@ class LoginController: UIViewController, UITextFieldDelegate {
     @IBAction func didEndMatricula(_ sender: UITextField) {
         moveTextField(sender, moveDistance: Int(self.view.frame.height/6) , up: true)
     }
+    
+    func sairDoTeclado(){
+        txtMatricula.resignFirstResponder()
+        txtSenha.resignFirstResponder()
+    }
+
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

@@ -14,7 +14,7 @@ import JSSAlertView
     
     var ref : DatabaseReference!
     let userID = Auth.auth().currentUser?.uid
-
+    let storage = Storage.storage()
     var dados = [String: String]()
     
     
@@ -24,6 +24,8 @@ import JSSAlertView
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var segSexo: UISegmentedControl!
     @IBOutlet weak var pkrNascimento: UIDatePicker!
+        @IBOutlet weak var indicadorDownload: UIActivityIndicatorView!
+
         
     let imagePicker = UIImagePickerController()
 
@@ -37,8 +39,8 @@ import JSSAlertView
     }
     
     @IBAction func btnConfirmar(_ sender: UIButton) {
-        print(pkrNascimento.date)
         sairDoTeclado()
+        
         if (txfNome.text?.isEmpty)! {
             JSSAlertView().success(
                 self, // the parent view controller of the alert
@@ -67,6 +69,26 @@ import JSSAlertView
             
             let nascimento : String = "\(pkrNascimento.date)"
             ref.child("users").child(userID!).updateChildValues(["nascimento": nascimento])
+            
+            let storageRef = storage.reference()
+            //imagens
+            var data = Data()
+            let imagesRef = storageRef.child("images/\(userID!)/profile.jpg")
+            data = self.imgPerfil.image!.jpeg(.lowest)!
+            
+            _ = imagesRef.putData(data, metadata: nil) { metadata, error in
+                if let error = error {
+                    print(error)
+                    // Uh-oh, an error occurred!
+                } else {
+                    
+                    self.ref.child("users").child(self.userID!).updateChildValues(["imageURL": ""])
+                    //self.ref.child("users").child(self.userID!).updateChildValues(["imageURL": "images/\(self.userID!)/profile.jpg"])
+                    _ = metadata!.downloadURL()
+                }
+            }
+            
+
             self.dismiss(animated: true, completion: nil)
             
         }
@@ -87,6 +109,7 @@ import JSSAlertView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.indicadorDownload.isHidden = false
         recuperarDados()
         txtEmail.delegate = self
         txfNome.delegate = self
@@ -127,7 +150,6 @@ import JSSAlertView
     }
     func recuperarDados(){
         ref = Database.database().reference()
-        
         ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
             
             let userInfo = snapshot.value as? NSDictionary
@@ -138,11 +160,7 @@ import JSSAlertView
                     self.txfNome.text! = (i.value as? String)!
                     break
                 case "nascimento":
-                    //self.dados["nascimento"] =  i.value as? String
                     let dateFormatter = DateFormatter()
-//                    dateFormatter.dateFormat = "yyyy-mm-dd HH:mm:ss" //Your date format
-//                    dateFormatter.timeZone = TimeZone(abbreviation: "+zzzz")
-                    
                     dateFormatter.dateFormat = "yyyy-mm-dd hh:mm:ss Z"
                     dateFormatter.isLenient = true
                     if let nascimento : Date = dateFormatter.date(from: (i.value as? String)!){
@@ -166,10 +184,29 @@ import JSSAlertView
                 case "email":
                     self.txtEmail.text! = (i.value as? String)!
                     break
+                case "imageURL":
+                    let storageRef = self.storage.reference().child("images/\(self.userID!)/profile.jpg")
+
+                    storageRef.downloadURL { (URL, error) -> Void in
+                        if (error != nil) {
+                            // Handle any errors
+                        } else {
+                            // Get the download URL for 'images/stars.jpg'
+                            let data = NSData.init(contentsOf: URL!)
+                            if data != nil {  //Some time Data value will be nil so we need to validate such things
+                                    self.imgPerfil.image = UIImage(data: data! as Data)
+                                    self.indicadorDownload.isHidden = true
+                            }
+                        }
+                    }
+                    
+                    break
                 default:
                     break
                 }
             }
+            
+            
                 
         }) { (error) in
             print(error.localizedDescription)

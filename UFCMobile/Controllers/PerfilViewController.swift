@@ -13,8 +13,11 @@ class PerfilViewController: BarraBrancaViewController, UITableViewDelegate, UITa
     
     @IBOutlet weak var txtMatricula: UILabel!
     @IBOutlet weak var txtNome: UILabel!
+    @IBOutlet weak var indicadorDownload: UIActivityIndicatorView!
     
-     var ref : DatabaseReference!
+    var ref : DatabaseReference!
+    let storage = Storage.storage()
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return opcoes.count
@@ -39,6 +42,7 @@ class PerfilViewController: BarraBrancaViewController, UITableViewDelegate, UITa
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.indicadorDownload.isHidden = false
         recuperarDados()
     }
 
@@ -81,6 +85,22 @@ class PerfilViewController: BarraBrancaViewController, UITableViewDelegate, UITa
                     break
                 }
             }
+            
+            let storageRef = self.storage.reference().child("images/\(userID!)/profile.jpg")
+            
+            storageRef.downloadURL { (URL, error) -> Void in
+                if (error != nil) {
+                    // Handle any errors
+                } else {
+                    // Get the download URL for 'images/stars.jpg'
+                    let data = NSData.init(contentsOf: URL!)
+                    if data != nil {  //Some time Data value will be nil so we need to validate such things
+                        self.imgPerfil.image = UIImage(data: data! as Data)
+                        self.indicadorDownload.isHidden = true
+                    }
+                }
+            }
+            
         }) { (error) in
             print(error.localizedDescription)
         }
