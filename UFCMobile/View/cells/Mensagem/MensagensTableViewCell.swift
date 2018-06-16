@@ -17,7 +17,6 @@ class MensagensTableViewCell: UITableViewCell {
     }
     @IBOutlet weak var txtMensagem: UILabel!
     @IBOutlet weak var lblNomeUsuario: UILabel!
-    @IBOutlet weak var imgFoto: UIImageView!
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

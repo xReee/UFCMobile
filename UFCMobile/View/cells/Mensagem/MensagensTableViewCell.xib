@@ -6,9 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,14 +20,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="74.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_empty" translatesAutoresizingMaskIntoConstraints="NO" id="OY1-vF-F8J">
-                        <rect key="frame" x="10" y="10" width="32" height="32"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="OY1-vF-F8J" secondAttribute="height" multiplier="1:1" id="MrI-1M-JC9"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1D-vd-gIQ">
-                        <rect key="frame" x="52" y="30" width="258" height="27"/>
+                        <rect key="frame" x="10" y="30" width="300" height="27"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do e</string>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
@@ -37,7 +29,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSG-0k-Lsu">
-                        <rect key="frame" x="52" y="10" width="262" height="21"/>
+                        <rect key="frame" x="10" y="10" width="304" height="21"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -45,28 +37,21 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="eSG-0k-Lsu" firstAttribute="top" secondItem="OY1-vF-F8J" secondAttribute="top" id="17B-h3-aAf"/>
-                    <constraint firstItem="OY1-vF-F8J" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.1" id="1BH-6E-VXj"/>
-                    <constraint firstItem="OY1-vF-F8J" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="8h9-Rn-fMm"/>
-                    <constraint firstItem="eSG-0k-Lsu" firstAttribute="leading" secondItem="OY1-vF-F8J" secondAttribute="trailing" constant="10" id="9uR-ha-o81"/>
+                    <constraint firstItem="eSG-0k-Lsu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="2uy-fU-GMN"/>
+                    <constraint firstItem="Q1D-vd-gIQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="GuY-DX-AWG"/>
                     <constraint firstAttribute="bottom" secondItem="Q1D-vd-gIQ" secondAttribute="bottom" constant="17.5" id="HgZ-LO-9Py"/>
                     <constraint firstItem="Q1D-vd-gIQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="Jf5-Lu-5Hi"/>
-                    <constraint firstItem="Q1D-vd-gIQ" firstAttribute="leading" secondItem="OY1-vF-F8J" secondAttribute="trailing" constant="10" id="NZm-bS-Vex"/>
-                    <constraint firstAttribute="trailing" secondItem="Q1D-vd-gIQ" secondAttribute="trailing" constant="10" id="koq-GR-8Wg"/>
-                    <constraint firstItem="OY1-vF-F8J" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="oEA-mA-Y7v"/>
+                    <constraint firstAttribute="trailing" secondItem="Q1D-vd-gIQ" secondAttribute="trailing" constant="10" id="KbN-AO-lo8"/>
+                    <constraint firstItem="eSG-0k-Lsu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="hxu-uK-Wit"/>
                     <constraint firstItem="eSG-0k-Lsu" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="10" id="yrR-Db-DRh"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="imgFoto" destination="OY1-vF-F8J" id="ScK-6d-leO"/>
                 <outlet property="lblNomeUsuario" destination="eSG-0k-Lsu" id="Ksu-zy-d1Z"/>
                 <outlet property="txtMensagem" destination="Q1D-vd-gIQ" id="ToP-jE-6Ia"/>
             </connections>
             <point key="canvasLocation" x="180" y="-84.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="profile_empty" width="1024" height="1024"/>
-    </resources>
 </document>

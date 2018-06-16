@@ -16,6 +16,7 @@ class ConversaViewController: UIViewController, UITableViewDelegate, UITableView
     var opcaoDeTexto : String!
     var mensagens : [Mensagem]! = []
     var ref : DatabaseReference!
+    let storage = Storage.storage()
     let userID = Auth.auth().currentUser?.uid
     var msglength: NSNumber = 1000
     fileprivate var _refHandle: DatabaseHandle!
@@ -24,6 +25,7 @@ class ConversaViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         ref = Database.database().reference()
         configureDatabase()
         mensagensTableView.register(UINib(nibName: "MensagensTableViewCell", bundle: nil), forCellReuseIdentifier: "mensagemCell")
@@ -33,6 +35,11 @@ class ConversaViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLayoutSubviews() {
         self.navigationItem.title = cadeira?.get("nome")
+        //scrollToBottomMessage()
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        scrollToBottomMessage()
     }
     
     func usernameBy(id: String) -> String {
@@ -52,7 +59,7 @@ class ConversaViewController: UIViewController, UITableViewDelegate, UITableView
                     }
                 }
             }
-            //snapshot.value(forKey: "nome") as! String
+            self.mensagensTableView.reloadData()
         }) { (error) in
             print(error.localizedDescription)
         }
@@ -87,10 +94,11 @@ class ConversaViewController: UIViewController, UITableViewDelegate, UITableView
                             print("\(y.value)")
                         }
                     }
+                    
                     self.mensagens.append(novaMensagem)
-                    //self.mensagensTableView.insertRows(at: [IndexPath(row: self.mensagens.count - 1, section: 1)], with: .automatic )
                     
                 }
+                
                 self.ordenarMensagens()
                 self.mensagensTableView.reloadData()
                 self.scrollToBottomMessage()
@@ -133,12 +141,13 @@ class ConversaViewController: UIViewController, UITableViewDelegate, UITableView
             let date = Date()
             conteudoMensagem["data"] = "\(date)"
             
-            //envia para o banco
             
-                ref.child("mensages").child(cadeira.get("codigo")).child(opcaoDeTexto).childByAutoId().setValue(conteudoMensagem)
             
-                txfMsg.resignFirstResponder()
-                txfMsg.text! = ""
+            conteudoMensagem["data"] = "\(date)"
+            
+            self.ref.child("mensages").child(self.cadeira.get("codigo")).child(self.opcaoDeTexto).childByAutoId().setValue(conteudoMensagem)
+            txfMsg.resignFirstResponder()
+            txfMsg.text! = ""
 
         }
         
@@ -161,7 +170,9 @@ class ConversaViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     // MARK: - Table view data source
-
+    
+    
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1

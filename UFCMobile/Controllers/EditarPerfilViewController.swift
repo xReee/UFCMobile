@@ -24,7 +24,7 @@ import JSSAlertView
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var segSexo: UISegmentedControl!
     @IBOutlet weak var pkrNascimento: UIDatePicker!
-        @IBOutlet weak var indicadorDownload: UIActivityIndicatorView!
+    @IBOutlet weak var indicadorDownload: UIActivityIndicatorView!
 
         
     let imagePicker = UIImagePickerController()
@@ -81,7 +81,6 @@ import JSSAlertView
                     print(error)
                     // Uh-oh, an error occurred!
                 } else {
-                    
                     self.ref.child("users").child(self.userID!).updateChildValues(["imageURL": ""])
                     //self.ref.child("users").child(self.userID!).updateChildValues(["imageURL": "images/\(self.userID!)/profile.jpg"])
                     _ = metadata!.downloadURL()

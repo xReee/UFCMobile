@@ -8,6 +8,7 @@
 
 
 // MARK: - Constants
+import UIKit
 
 struct Mensagem {
     var autor = "name"

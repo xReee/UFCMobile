@@ -41,7 +41,7 @@ class PerfilViewController: BarraBrancaViewController, UITableViewDelegate, UITa
         recuperarDados()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         self.indicadorDownload.isHidden = false
         recuperarDados()
     }
@@ -56,7 +56,7 @@ class PerfilViewController: BarraBrancaViewController, UITableViewDelegate, UITa
     }
     
     func setupViews(){
-        imgPerfil.layer.borderWidth = 10
+        imgPerfil.layer.borderWidth = 8
         imgPerfil.layer.borderColor = UIColor.white.cgColor
         imgPerfil.layer.cornerRadius = (imgPerfil.frame.size.width / 2)
         
@@ -76,7 +76,7 @@ class PerfilViewController: BarraBrancaViewController, UITableViewDelegate, UITa
             for i in userInfo! {
                 switch i.key as! String {
                 case "matricula":
-                    self.txtMatricula.text = i.value as? String
+                    self.txtMatricula.text = "nº \(i.value)"
                     break
                 case "nome":
                     self.txtNome.text = i.value as? String

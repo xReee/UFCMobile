@@ -230,8 +230,4 @@ class MensagensViewController:  UIViewController, UICollectionViewDelegate, UICo
             
        
     }
-    
-    deinit {
-        ref.child("mensages").removeObserver(withHandle: _refHandle)
-    }
 }
