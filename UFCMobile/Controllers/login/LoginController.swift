@@ -22,7 +22,11 @@ class LoginController: UIViewController, UITextFieldDelegate {
         txtSenha.delegate = self
         
         ref = Database.database().reference()
-
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        txtMatricula.text = ""
+        txtSenha.text = ""
     }
 
     @IBAction func btnLogar(_ sender: UIButton) {

@@ -238,6 +238,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 guard let qntCadeiras = self.arrayCadeiras?.count else {
                     return cell
                 }
+                if (arrayCadeiras?.count)! > 0 {
+                    arrayCadeiras!.sort(by: { $0.getHorarioInicio(dia: diaAtivo).compare($1.getHorarioInicio(dia: diaAtivo)) == .orderedAscending })
+                }
+                
                 
                     for i in lastIndice..<qntCadeiras {
                         let cadeiraDaVez = arrayCadeiras![i]

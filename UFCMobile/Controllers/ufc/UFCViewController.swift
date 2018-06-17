@@ -10,10 +10,10 @@ import UIKit
 
 class UFCViewController: BarraBrancaViewController, UITableViewDataSource, UITableViewDelegate {
     
-    let opcoes = ["Notícias", "Calendário", "Mapa benfica", "Mapa Pici"]
+    let opcoes = ["Calendário", "Mapa benfica", "Mapa Pici"]//["Notícias", "Calendário", "Mapa benfica", "Mapa Pici"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return opcoes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

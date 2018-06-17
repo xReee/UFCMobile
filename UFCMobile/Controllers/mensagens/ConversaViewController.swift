@@ -90,8 +90,8 @@ class ConversaViewController: UIViewController, UITableViewDelegate, UITableView
                         case "mensagem":
                             novaMensagem.mensagem = (y.value as? String)!
                             break;
-                        default:
-                            print("\(y.value)")
+                        default: break
+                            
                         }
                     }
                     

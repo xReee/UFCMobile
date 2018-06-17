@@ -15,9 +15,10 @@ class PerfilViewController: BarraBrancaViewController, UITableViewDelegate, UITa
     @IBOutlet weak var txtNome: UILabel!
     @IBOutlet weak var indicadorDownload: UIActivityIndicatorView!
     
+    
     var ref : DatabaseReference!
     let storage = Storage.storage()
-
+    var opcaoEscolhida = ""
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return opcoes.count
@@ -34,7 +35,7 @@ class PerfilViewController: BarraBrancaViewController, UITableViewDelegate, UITa
     @IBOutlet weak var btnEditar: UIButton!
     
   //  let opcoes = ["Perfil Completo", "Atestado de matrícula", "Cadeiras Anteriores", "IRA", "Resultado do processamento"]
-    let opcoes = ["Perfil Completo"]// "Atestado de matrícula", "Cadeiras Anteriores", "IRA", "Resultado do processamento"]
+    let opcoes = ["Perfil Completo", "Cadeiras Matriculadas",  "Emitir atestado de matrícula"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,7 @@ class PerfilViewController: BarraBrancaViewController, UITableViewDelegate, UITa
         self.indicadorDownload.isHidden = false
         recuperarDados()
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -106,6 +108,20 @@ class PerfilViewController: BarraBrancaViewController, UITableViewDelegate, UITa
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.opcaoEscolhida = opcoes[indexPath.row]
+        if opcaoEscolhida != "Emitir atestado de matrícula"{
+            performSegue(withIdentifier: "gotoOpcaoEscolhida", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "gotoOpcaoEscolhida" {
+            let navigationViewDestino = segue.destination as? UINavigationController
+            let viewDestino = navigationViewDestino?.viewControllers.first as! PerfilOpcaoTableViewController
+            viewDestino.opcaoEscolhida = self.opcaoEscolhida
+        }
+    }
     
 
 }

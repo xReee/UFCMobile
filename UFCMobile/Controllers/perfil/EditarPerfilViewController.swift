@@ -77,8 +77,7 @@ import JSSAlertView
             data = self.imgPerfil.image!.jpeg(.lowest)!
             
             _ = imagesRef.putData(data, metadata: nil) { metadata, error in
-                if let error = error {
-                    print(error)
+                if error != nil {
                     // Uh-oh, an error occurred!
                 } else {
                     self.ref.child("users").child(self.userID!).updateChildValues(["imageURL": ""])
@@ -88,6 +87,7 @@ import JSSAlertView
             }
             
 
+            
             self.dismiss(animated: true, completion: nil)
             
         }
@@ -208,7 +208,7 @@ import JSSAlertView
             
                 
         }) { (error) in
-            print(error.localizedDescription)
+            //Error occured
         }
      
       
