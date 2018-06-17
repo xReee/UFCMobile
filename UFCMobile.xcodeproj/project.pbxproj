@@ -25,6 +25,8 @@
 		94A4DE6920CB468400AE5CB6 /* MensagensTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4DE6720CB468400AE5CB6 /* MensagensTableViewCell.swift */; };
 		94A4DE6A20CB468400AE5CB6 /* MensagensTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94A4DE6820CB468400AE5CB6 /* MensagensTableViewCell.xib */; };
 		94A4DE6C20CB4B5300AE5CB6 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4DE6B20CB4B5300AE5CB6 /* Structs.swift */; };
+		94A8240120D6A94B00229096 /* OpcoesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A823FF20D6A94B00229096 /* OpcoesTableViewCell.swift */; };
+		94A8240220D6A94B00229096 /* OpcoesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94A8240020D6A94B00229096 /* OpcoesTableViewCell.xib */; };
 		94BA1C6720BC767000CCB209 /* UFCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BA1C6620BC767000CCB209 /* UFCViewController.swift */; };
 		94C066C120A09F1F00294AB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C066C020A09F1F00294AB6 /* AppDelegate.swift */; };
 		94C066C320A09F1F00294AB6 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C066C220A09F1F00294AB6 /* LoginController.swift */; };
@@ -57,6 +59,8 @@
 		94A4DE6720CB468400AE5CB6 /* MensagensTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MensagensTableViewCell.swift; sourceTree = "<group>"; };
 		94A4DE6820CB468400AE5CB6 /* MensagensTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MensagensTableViewCell.xib; sourceTree = "<group>"; };
 		94A4DE6B20CB4B5300AE5CB6 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
+		94A823FF20D6A94B00229096 /* OpcoesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpcoesTableViewCell.swift; sourceTree = "<group>"; };
+		94A8240020D6A94B00229096 /* OpcoesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpcoesTableViewCell.xib; sourceTree = "<group>"; };
 		94BA1C6620BC767000CCB209 /* UFCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFCViewController.swift; sourceTree = "<group>"; };
 		94C066BD20A09F1F00294AB6 /* UFCMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UFCMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C066C020A09F1F00294AB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -217,6 +221,7 @@
 		9494779A20B97E7500283AA0 /* cells */ = {
 			isa = PBXGroup;
 			children = (
+				94A823FC20D6A27A00229096 /* Opcoes */,
 				94A4DE6420CB3ED200AE5CB6 /* Mensagem */,
 				948AC64B20C0C92F008DE8E9 /* Chat */,
 				940918AA20BB3BB600D0398D /* Agenda */,
@@ -232,6 +237,15 @@
 				94A4DE6820CB468400AE5CB6 /* MensagensTableViewCell.xib */,
 			);
 			path = Mensagem;
+			sourceTree = "<group>";
+		};
+		94A823FC20D6A27A00229096 /* Opcoes */ = {
+			isa = PBXGroup;
+			children = (
+				94A823FF20D6A94B00229096 /* OpcoesTableViewCell.swift */,
+				94A8240020D6A94B00229096 /* OpcoesTableViewCell.xib */,
+			);
+			path = Opcoes;
 			sourceTree = "<group>";
 		};
 		94C066B420A09F1E00294AB6 = {
@@ -342,6 +356,7 @@
 				94C066C620A09F1F00294AB6 /* Main.storyboard in Resources */,
 				940918B020BB456500D0398D /* AgendaTableViewCell.xib in Resources */,
 				94A4DE6A20CB468400AE5CB6 /* MensagensTableViewCell.xib in Resources */,
+				94A8240220D6A94B00229096 /* OpcoesTableViewCell.xib in Resources */,
 				9494779E20B97E9B00283AA0 /* DiasCollectionViewCell.xib in Resources */,
 				94F84AA520C1776400FDF96D /* GoogleService-Info.plist in Resources */,
 			);
@@ -465,6 +480,7 @@
 				94C066D320A1382200294AB6 /* Extensions.swift in Sources */,
 				944A495320D5D4BD00522358 /* PerfilOpcaoTableViewController.swift in Sources */,
 				9436581B20D4AF1E00D97D81 /* ConfiguracaoTableViewController.swift in Sources */,
+				94A8240120D6A94B00229096 /* OpcoesTableViewCell.swift in Sources */,
 				948E9B8620BF9B2800A3F92A /* MensagensViewController.swift in Sources */,
 				947DFDC820CF48A1009C3954 /* Enums.swift in Sources */,
 				948AC65020C0C969008DE8E9 /* ChatTableViewCell.swift in Sources */,

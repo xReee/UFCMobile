@@ -20,21 +20,56 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UFClogo" translatesAutoresizingMaskIntoConstraints="NO" id="ZYV-1O-JGF">
-                                <rect key="frame" x="-301" y="177" width="976" height="333.5"/>
+                                <rect key="frame" x="0.0" y="89.5" width="375" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="aKL-aS-edf"/>
+                                </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UFC MOBILE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OqB-19-039">
+                                <rect key="frame" x="10" y="319.5" width="355" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Criado por: Renata Faria, Eudório Filho, Nathan Medeiros e Othon Inácio" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEG-KR-SrL">
+                                <rect key="frame" x="66.5" y="387.5" width="243.5" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Zx7-ek-bs1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMD UFC 2018" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuW-8h-wLk">
+                                <rect key="frame" x="10" y="497.5" width="355" height="119.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.043137254899999998" green="0.53333333329999999" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ZYV-1O-JGF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="29d-K6-68K"/>
-                            <constraint firstItem="ZYV-1O-JGF" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="0.5" id="Sd2-b7-P5C"/>
-                            <constraint firstItem="ZYV-1O-JGF" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="xLk-LQ-8Kq"/>
+                            <constraint firstItem="OqB-19-039" firstAttribute="top" secondItem="ZYV-1O-JGF" secondAttribute="bottom" constant="30" id="4u5-AH-JBQ"/>
+                            <constraint firstItem="DuW-8h-wLk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="5X0-3F-HcI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DuW-8h-wLk" secondAttribute="bottom" constant="50" id="7ng-6M-9gc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DuW-8h-wLk" secondAttribute="trailing" constant="10" id="Cv9-CN-rTj"/>
+                            <constraint firstItem="eEG-KR-SrL" firstAttribute="top" secondItem="OqB-19-039" secondAttribute="bottom" constant="20" id="Dbr-6V-TWY"/>
+                            <constraint firstItem="ZYV-1O-JGF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EAZ-Ss-3G7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OqB-19-039" secondAttribute="trailing" constant="10" id="EDV-dk-CdT"/>
+                            <constraint firstItem="OqB-19-039" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="H3H-Qu-f8f"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZYV-1O-JGF" secondAttribute="trailing" id="lkG-Ze-RZH"/>
+                            <constraint firstItem="OqB-19-039" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="oNV-ff-1dV"/>
+                            <constraint firstItem="DuW-8h-wLk" firstAttribute="top" secondItem="eEG-KR-SrL" secondAttribute="bottom" constant="10" id="qqK-0m-fP7"/>
+                            <constraint firstItem="eEG-KR-SrL" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tpF-tM-eso"/>
+                            <constraint firstItem="eEG-KR-SrL" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.65" id="wzs-Lc-y04"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
     <resources>

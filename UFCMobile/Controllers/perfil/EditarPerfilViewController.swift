@@ -160,9 +160,9 @@ import JSSAlertView
                     break
                 case "nascimento":
                     let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "yyyy-mm-dd hh:mm:ss Z"
+                    dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss Z"
                     dateFormatter.isLenient = true
-                    if let nascimento : Date = dateFormatter.date(from: (i.value as? String)!){
+                    if let nascimento = dateFormatter.date(from: (i.value as? String)!){
                         self.pkrNascimento.setDate(nascimento, animated: true)
                     }
                     break
