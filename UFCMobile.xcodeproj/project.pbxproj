@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4822F3823C518828C628E73A /* Pods_UFCMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 765CBE60AC4E0350F68806C3 /* Pods_UFCMobile.framework */; };
+		9401107D20D7C1C9009AF2BC /* CadeiraTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9401107B20D7C1C9009AF2BC /* CadeiraTableViewCell.swift */; };
+		9401107E20D7C1C9009AF2BC /* CadeiraTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9401107C20D7C1C9009AF2BC /* CadeiraTableViewCell.xib */; };
 		94066AF920CAE4A6007D9140 /* ConversaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94066AF820CAE4A6007D9140 /* ConversaViewController.swift */; };
 		940918AF20BB456500D0398D /* AgendaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940918AD20BB456500D0398D /* AgendaTableViewCell.swift */; };
 		940918B020BB456500D0398D /* AgendaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940918AE20BB456500D0398D /* AgendaTableViewCell.xib */; };
@@ -46,6 +48,8 @@
 /* Begin PBXFileReference section */
 		765CBE60AC4E0350F68806C3 /* Pods_UFCMobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UFCMobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8366D08AECD6DD99B6269E91 /* Pods-UFCMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UFCMobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UFCMobile/Pods-UFCMobile.debug.xcconfig"; sourceTree = "<group>"; };
+		9401107B20D7C1C9009AF2BC /* CadeiraTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadeiraTableViewCell.swift; sourceTree = "<group>"; };
+		9401107C20D7C1C9009AF2BC /* CadeiraTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CadeiraTableViewCell.xib; sourceTree = "<group>"; };
 		94066AF820CAE4A6007D9140 /* ConversaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversaViewController.swift; sourceTree = "<group>"; };
 		940918AD20BB456500D0398D /* AgendaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaTableViewCell.swift; sourceTree = "<group>"; };
 		940918AE20BB456500D0398D /* AgendaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgendaTableViewCell.xib; sourceTree = "<group>"; };
@@ -102,6 +106,13 @@
 				765CBE60AC4E0350F68806C3 /* Pods_UFCMobile.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9401107F20D7E22A009AF2BC /* Participantes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Participantes;
 			sourceTree = "<group>";
 		};
 		940918A920BB3BAA00D0398D /* Dias */ = {
@@ -219,8 +230,9 @@
 		948B855A20D74F3A0072C843 /* Cadeira */ = {
 			isa = PBXGroup;
 			children = (
-				948B855D20D74F570072C843 /* Faltas e Avaliacao */,
-				948B855C20D74F4E0072C843 /* Tarefas */,
+				9401107B20D7C1C9009AF2BC /* CadeiraTableViewCell.swift */,
+				9401107C20D7C1C9009AF2BC /* CadeiraTableViewCell.xib */,
+				9401107F20D7E22A009AF2BC /* Participantes */,
 				948B855B20D74F430072C843 /* Arquivos */,
 			);
 			path = Cadeira;
@@ -233,20 +245,6 @@
 				948B855F20D750F20072C843 /* ArquivosTableViewCell.xib */,
 			);
 			path = Arquivos;
-			sourceTree = "<group>";
-		};
-		948B855C20D74F4E0072C843 /* Tarefas */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Tarefas;
-			sourceTree = "<group>";
-		};
-		948B855D20D74F570072C843 /* Faltas e Avaliacao */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Faltas e Avaliacao";
 			sourceTree = "<group>";
 		};
 		948B856220D7530B0072C843 /* cadeira */ = {
@@ -406,6 +404,7 @@
 				948B856120D750F20072C843 /* ArquivosTableViewCell.xib in Resources */,
 				948AC65120C0C969008DE8E9 /* ChatTableViewCell.xib in Resources */,
 				94C066C820A09F1F00294AB6 /* Assets.xcassets in Resources */,
+				9401107E20D7C1C9009AF2BC /* CadeiraTableViewCell.xib in Resources */,
 				94C066C620A09F1F00294AB6 /* Main.storyboard in Resources */,
 				940918B020BB456500D0398D /* AgendaTableViewCell.xib in Resources */,
 				94A4DE6A20CB468400AE5CB6 /* MensagensTableViewCell.xib in Resources */,
@@ -534,6 +533,7 @@
 				944A495320D5D4BD00522358 /* PerfilOpcaoTableViewController.swift in Sources */,
 				948B855220D733810072C843 /* CadeiraTableViewController.swift in Sources */,
 				9436581B20D4AF1E00D97D81 /* ConfiguracaoTableViewController.swift in Sources */,
+				9401107D20D7C1C9009AF2BC /* CadeiraTableViewCell.swift in Sources */,
 				94A8240120D6A94B00229096 /* OpcoesTableViewCell.swift in Sources */,
 				948E9B8620BF9B2800A3F92A /* MensagensViewController.swift in Sources */,
 				947DFDC820CF48A1009C3954 /* Enums.swift in Sources */,
