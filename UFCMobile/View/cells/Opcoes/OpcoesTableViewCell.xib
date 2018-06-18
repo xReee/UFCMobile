@@ -30,17 +30,18 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="opcao" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGR-aF-VL7">
-                        <rect key="frame" x="146" y="28" width="148" height="20.5"/>
+                        <rect key="frame" x="146" y="21" width="148" height="35"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="lGR-aF-VL7" firstAttribute="leading" secondItem="evs-1Z-0ZZ" secondAttribute="trailing" constant="20" id="2M1-vc-i9X"/>
-                    <constraint firstItem="lGR-aF-VL7" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="F2S-0b-Z5t"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="lGR-aF-VL7" secondAttribute="trailing" constant="10" id="bnm-5B-E06"/>
-                    <constraint firstItem="evs-1Z-0ZZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cGg-HE-soN"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="lGR-aF-VL7" secondAttribute="trailing" constant="10" id="AGb-H6-P8F"/>
+                    <constraint firstItem="lGR-aF-VL7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="K0h-Dc-5gW"/>
+                    <constraint firstItem="evs-1Z-0ZZ" firstAttribute="centerY" secondItem="lGR-aF-VL7" secondAttribute="centerY" id="KkR-xB-Qwa"/>
+                    <constraint firstItem="lGR-aF-VL7" firstAttribute="leading" secondItem="evs-1Z-0ZZ" secondAttribute="trailing" constant="20" id="NA8-9I-Yd8"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="lGR-aF-VL7" secondAttribute="bottom" constant="10" id="cHk-L1-uHW"/>
                     <constraint firstItem="evs-1Z-0ZZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="yJ6-A6-BqA"/>
                 </constraints>
             </tableViewCellContentView>

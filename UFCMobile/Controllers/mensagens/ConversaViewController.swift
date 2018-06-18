@@ -35,12 +35,8 @@ class ConversaViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLayoutSubviews() {
         self.navigationItem.title = cadeira?.get("nome")
-        //scrollToBottomMessage()
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        scrollToBottomMessage()
-    }
     
     func usernameBy(id: String) -> String {
         if id == userID {return "Você"}

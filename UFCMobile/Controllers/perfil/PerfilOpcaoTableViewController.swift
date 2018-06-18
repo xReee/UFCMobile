@@ -9,10 +9,13 @@
 import UIKit
 import Firebase
 
-class PerfilOpcaoTableViewController: BarraBrancaTableViewController {
+class PerfilOpcaoTableViewController: UITableViewController {
 
     var opcaoEscolhida = ""
     lazy var opcoes = [String]()
+    var ref : DatabaseReference!
+    let userID = Auth.auth().currentUser?.uid
+    var dados = [String: String]()
     
     
     @IBAction func btnVoltar(_ sender: Any) {
@@ -21,16 +24,27 @@ class PerfilOpcaoTableViewController: BarraBrancaTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.statusBarStyle = .lightContent
 
-        self.navigationItem.title = opcaoEscolhida
         
+        self.navigationItem.title = opcaoEscolhida
+        self.tableView.register(UINib.init(nibName: "OpcoesTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+
         if opcaoEscolhida == "Perfil Completo" {
             opcoes =  ["Nome","Matricula", "Curso", "Semestre", "IRA", "Nascimento", "Sexo", "Email" ]
-            self.tableView.register(UINib.init(nibName: "OpcoesTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+            recuperarDadosUsuario()
+            
+        } else {
+            recuperarDadosCadeira()
         }
         
     }
 
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -44,64 +58,122 @@ class PerfilOpcaoTableViewController: BarraBrancaTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return opcoes.count
+        return dados.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! OpcoesTableViewCell
         
-        if opcaoEscolhida == "Perfil Completo" {
-            cell.txtOpNome.text = opcoes[indexPath.row]
-        }
+        cell.txtOpNome.text = opcoes[indexPath.row]
+                guard let valorOpcao = dados[opcoes[indexPath.row]] else {
+                    cell.txtOpValor.text = "Não informado"
+                    return cell
+            }
+            cell.txtOpValor.text = valorOpcao
+            return cell
         
-        return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    func recuperarDadosCadeira(){
+        ref = Database.database().reference()
+        ref.child("users").child(userID!).child("cadeiras").observeSingleEvent(of: .value, with: { (snapshot) in
+            let cadeirasInfo = snapshot.value as? NSDictionary
+            for i in cadeirasInfo! {
+                self.opcoes.append(i.key as! String)
+                self.recuperarCadeira(i.key as! String)
+                
+            }
+        })
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    func recuperarCadeira(_ cadeira : String){
+        ref.child("cadeiras").child(cadeira).observeSingleEvent(of: .value, with: { (snapshot) in
+            let cadeirasInfo = snapshot.value as? NSDictionary
+            for i in cadeirasInfo! {
+                if i.key as! String == "nome" {
+                    self.dados[cadeira] = i.value as? String
+                    self.tableView.reloadData()
+                    break
+                }
+            }
+        })
     }
-    */
+    
+    func recuperarDadosUsuario(){
+        ref = Database.database().reference()
+        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let userInfo = snapshot.value as? NSDictionary
+            
+            for i in userInfo! {
+                let op = i.key as! String
+                switch op {
+                    case "nome":
+                        self.dados["Nome"] = i.value as? String
+                    break
+                    case "nascimento":
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss Z"
+                        dateFormatter.isLenient = true
+                        if let nascimento = dateFormatter.date(from: (i.value as? String)!){
+                            dateFormatter.dateFormat = "dd/MM/yyyy"
+                            self.dados["Nascimento"] = dateFormatter.string(from: nascimento)
+                        }
+                        break
+                    case "sexo":
+                        let sexo =  i.value as? String
+                        switch sexo {
+                        case "F":
+                            self.dados["Sexo"] = "Feminino"
+                            break
+                        case "M":
+                            self.dados["Sexo"] = "Masculino"
+                            break
+                        default:
+                            self.dados["Sexo"] = "Não informado"
+                            break
+                        }
+                        break
+                    
+                    case "email":
+                       self.dados["Email"] = i.value as? String
+                    break
 
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+                    case "curso":
+                        self.dados["Curso"] = i.value as? String
+                    break
+
+                    case "matricula":
+                        self.dados["Matricula"] = i.value as? String
+                    break
+
+                    case "semestre":
+                        self.dados["Semestre"] = i.value as? String
+                    break
+                    
+                    case "IRA":
+                        self.dados["IRA"] = i.value as? String
+                    break
+
+                    
+                    default:
+                        break
+                    
+                }
+                
+            }
+            self.tableView.reloadData()
+            
+        }) { (error) in
+            //Error occured
+        }
+        
+        
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

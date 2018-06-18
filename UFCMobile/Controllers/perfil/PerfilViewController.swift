@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import JSSAlertView
 
 class PerfilViewController: BarraBrancaViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -112,6 +113,11 @@ class PerfilViewController: BarraBrancaViewController, UITableViewDelegate, UITa
         self.opcaoEscolhida = opcoes[indexPath.row]
         if opcaoEscolhida != "Emitir atestado de matrícula"{
             performSegue(withIdentifier: "gotoOpcaoEscolhida", sender: self)
+        } else {
+            JSSAlertView().success(
+                self, // the parent view controller of the alert
+                title: "Em breve",
+                text: "Estamos trabalhando para implementar isso!")
         }
     }
     

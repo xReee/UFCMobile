@@ -29,7 +29,6 @@ class MensagensViewController:  UIViewController, UICollectionViewDelegate, UICo
         
     }
     
-   
     //#MARK: verifica dados
     func verificarDados(){
         ref = Database.database().reference()
