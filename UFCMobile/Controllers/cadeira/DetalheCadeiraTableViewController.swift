@@ -15,9 +15,10 @@ class DetalheCadeiraTableViewController: UITableViewController {
     var codCadeira = ""
     var objetos = [String:String]()
     var nomeDosObjetos = [String]()
-    var nomeOutrasOp = [String]()
+    lazy var fotos = [String:UIImage]()
     var ref: DatabaseReference!
     let userID = Auth.auth().currentUser?.uid
+    let storage = Storage.storage()
 
 
     
@@ -38,7 +39,11 @@ class DetalheCadeiraTableViewController: UITableViewController {
         } else if opcao == "Frequencia" {
             self.tableView.register(UINib(nibName: "CadeiraTableViewCell", bundle: nil), forCellReuseIdentifier: "opcoesCell")
             retornarCoisasDoAluno("frequencia")
+        } else if opcao == "Participantes" {
+            self.tableView.register(UINib(nibName: "ParticipantesTableViewCell", bundle: nil), forCellReuseIdentifier: "opcoesCell")
+            retornarListaDeAlunos()
         }
+        
         
     }
 
@@ -60,10 +65,10 @@ class DetalheCadeiraTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         if opcao == "Arquivos" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "arquivoCell", for: indexPath) as! ArquivosTableViewCell
             cell.txtNome.text = self.nomeDosObjetos[indexPath.row]
+            cell.selectionStyle = .none
             return cell
         } else if opcao != "Participantes" && opcao != "Nota de Avaliações" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "opcoesCell", for: indexPath) as! CadeiraTableViewCell
@@ -81,13 +86,26 @@ class DetalheCadeiraTableViewController: UITableViewController {
                 cell.txtEstado.textColor = .orange
                 break
             }
+            cell.selectionStyle = .none
             return cell
         } else if opcao == "Nota de Avaliações" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "opcoesCell", for: indexPath) as! CadeiraTableViewCell
             cell.txtNome.text = self.nomeDosObjetos[indexPath.row]
             cell.txtEstado.text = self.objetos[self.nomeDosObjetos[indexPath.row]]
+            cell.selectionStyle = .none
+            return cell
+        } else if opcao == "Participantes" {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "opcoesCell", for: indexPath) as! ParticipantesTableViewCell
+            cell.txtNome.text = self.nomeDosObjetos[indexPath.row]
+            cell.txtCurso.text = self.objetos[self.nomeDosObjetos[indexPath.row]]
+            if self.fotos[self.objetos[self.nomeDosObjetos[indexPath.row]]!] != nil{
+                cell.imgPerfil.image = self.fotos[self.objetos[self.nomeDosObjetos[indexPath.row]]!]
+                cell.imgPerfil.layer.cornerRadius = cell.imgPerfil.frame.size.height / 2
+            }
+            cell.selectionStyle = .none
             return cell
         }
+        
         
         let cell = UITableViewCell()
         return cell
@@ -141,6 +159,52 @@ class DetalheCadeiraTableViewController: UITableViewController {
                         self.tableView.reloadData()
                     } //for
                }
+            }
+        })
+        
+    }
+    
+    func retornarListaDeAlunos(){
+        ref = Database.database().reference()
+        
+        ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+            for users in snapshot.value as! NSDictionary{
+                for dadosAluno in users.value as! NSDictionary {
+                    if dadosAluno.key as! String == "cadeiras" {
+                        for cadeira in dadosAluno.value as! NSDictionary{
+                            if cadeira.key as! String == self.codCadeira {
+                                //encontrou o aluno na cadeira
+                                var objetoDetalhe = ""
+                                var objetoNome = ""
+                                
+                                for dados in users.value as! NSDictionary {
+                                    if dados.key as! String  == "nome"{
+                                         objetoNome = dados.value as! String
+                                    } else if dados.key as! String  == "matricula"{
+                                        objetoDetalhe = dados.value as! String
+                                    }
+                                }
+                                
+                                let thisUserId = users.key as! String
+                                let storageRef = self.storage.reference().child("images/\(thisUserId)/profile.jpg")
+                                storageRef.downloadURL { (URL, error) -> Void in
+                                    if (error != nil) {
+                                    } else {
+                                        let data = NSData.init(contentsOf: URL!)
+                                        if data != nil {  //Some time Data value will be nil so we need to validate such things
+                                            self.fotos[objetoDetalhe] = UIImage(data: data! as Data)
+                                            self.tableView.reloadData()
+                                            }
+                                        }
+                                    }
+                                
+                                self.nomeDosObjetos.append(objetoNome)
+                                self.objetos[objetoNome] = objetoDetalhe
+                                self.tableView.reloadData()
+                            }
+                        }
+                    }
+                }
             }
         })
         

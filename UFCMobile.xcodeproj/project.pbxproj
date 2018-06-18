@@ -10,6 +10,8 @@
 		4822F3823C518828C628E73A /* Pods_UFCMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 765CBE60AC4E0350F68806C3 /* Pods_UFCMobile.framework */; };
 		9401107D20D7C1C9009AF2BC /* CadeiraTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9401107B20D7C1C9009AF2BC /* CadeiraTableViewCell.swift */; };
 		9401107E20D7C1C9009AF2BC /* CadeiraTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9401107C20D7C1C9009AF2BC /* CadeiraTableViewCell.xib */; };
+		9401108420D7E378009AF2BC /* ParticipantesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9401108220D7E378009AF2BC /* ParticipantesTableViewCell.swift */; };
+		9401108520D7E378009AF2BC /* ParticipantesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9401108320D7E378009AF2BC /* ParticipantesTableViewCell.xib */; };
 		94066AF920CAE4A6007D9140 /* ConversaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94066AF820CAE4A6007D9140 /* ConversaViewController.swift */; };
 		940918AF20BB456500D0398D /* AgendaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940918AD20BB456500D0398D /* AgendaTableViewCell.swift */; };
 		940918B020BB456500D0398D /* AgendaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940918AE20BB456500D0398D /* AgendaTableViewCell.xib */; };
@@ -50,6 +52,8 @@
 		8366D08AECD6DD99B6269E91 /* Pods-UFCMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UFCMobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UFCMobile/Pods-UFCMobile.debug.xcconfig"; sourceTree = "<group>"; };
 		9401107B20D7C1C9009AF2BC /* CadeiraTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadeiraTableViewCell.swift; sourceTree = "<group>"; };
 		9401107C20D7C1C9009AF2BC /* CadeiraTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CadeiraTableViewCell.xib; sourceTree = "<group>"; };
+		9401108220D7E378009AF2BC /* ParticipantesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantesTableViewCell.swift; sourceTree = "<group>"; };
+		9401108320D7E378009AF2BC /* ParticipantesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParticipantesTableViewCell.xib; sourceTree = "<group>"; };
 		94066AF820CAE4A6007D9140 /* ConversaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversaViewController.swift; sourceTree = "<group>"; };
 		940918AD20BB456500D0398D /* AgendaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaTableViewCell.swift; sourceTree = "<group>"; };
 		940918AE20BB456500D0398D /* AgendaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgendaTableViewCell.xib; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 		9401107F20D7E22A009AF2BC /* Participantes */ = {
 			isa = PBXGroup;
 			children = (
+				9401108220D7E378009AF2BC /* ParticipantesTableViewCell.swift */,
+				9401108320D7E378009AF2BC /* ParticipantesTableViewCell.xib */,
 			);
 			path = Participantes;
 			sourceTree = "<group>";
@@ -409,6 +415,7 @@
 				940918B020BB456500D0398D /* AgendaTableViewCell.xib in Resources */,
 				94A4DE6A20CB468400AE5CB6 /* MensagensTableViewCell.xib in Resources */,
 				94A8240220D6A94B00229096 /* OpcoesTableViewCell.xib in Resources */,
+				9401108520D7E378009AF2BC /* ParticipantesTableViewCell.xib in Resources */,
 				9494779E20B97E9B00283AA0 /* DiasCollectionViewCell.xib in Resources */,
 				94F84AA520C1776400FDF96D /* GoogleService-Info.plist in Resources */,
 			);
@@ -544,6 +551,7 @@
 				948B856020D750F20072C843 /* ArquivosTableViewCell.swift in Sources */,
 				94C5C9B120C496C000DC69BC /* EditarPerfilViewController.swift in Sources */,
 				94C066C120A09F1F00294AB6 /* AppDelegate.swift in Sources */,
+				9401108420D7E378009AF2BC /* ParticipantesTableViewCell.swift in Sources */,
 				94066AF920CAE4A6007D9140 /* ConversaViewController.swift in Sources */,
 				948E9B8120BCE09E00A3F92A /* PerfilViewController.swift in Sources */,
 				9494779D20B97E9B00283AA0 /* DiasCollectionViewCell.swift in Sources */,
