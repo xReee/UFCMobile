@@ -16,7 +16,8 @@ class PerfilOpcaoTableViewController: UITableViewController {
     var ref : DatabaseReference!
     let userID = Auth.auth().currentUser?.uid
     var dados = [String: String]()
-    
+    var opcaoAtiva = ""
+    var codigo = ""
     
     @IBAction func btnVoltar(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -64,13 +65,19 @@ class PerfilOpcaoTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! OpcoesTableViewCell
+        cell.selectionStyle = .none
         
         cell.txtOpNome.text = opcoes[indexPath.row]
                 guard let valorOpcao = dados[opcoes[indexPath.row]] else {
                     cell.txtOpValor.text = "Não informado"
                     return cell
             }
-            cell.txtOpValor.text = valorOpcao
+        if valorOpcao == "" {
+            cell.txtOpValor.text = "Não informado"
+            return cell
+        }
+        
+        cell.txtOpValor.text = valorOpcao
             return cell
         
     }
@@ -173,7 +180,23 @@ class PerfilOpcaoTableViewController: UITableViewController {
             //Error occured
         }
         
-        
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       if opcaoEscolhida != "Perfil Completo" {
+        let cell = tableView.cellForRow(at: indexPath) as! OpcoesTableViewCell
+        self.opcaoAtiva = cell.txtOpValor.text!
+        self.codigo = cell.txtOpNome.text!
+            performSegue(withIdentifier: "gotoCadeiraByPerfil", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "gotoCadeiraByPerfil"{
+            let viewDestino = segue.destination as! CadeiraTableViewController
+            viewDestino.opcao = self.opcaoAtiva
+            viewDestino.codCadeira = self.codigo
+        }
     }
 
 }

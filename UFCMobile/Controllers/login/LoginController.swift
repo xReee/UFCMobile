@@ -24,6 +24,10 @@ class LoginController: UIViewController, UITextFieldDelegate {
         ref = Database.database().reference()
     }
     
+    override func viewDidLayoutSubviews() {
+        btnAcessarOutlet.layer.cornerRadius = (btnAcessarOutlet.frame.size.height / 2)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         txtMatricula.text = ""
         txtSenha.text = ""
@@ -99,6 +103,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     @IBAction func didEndMatricula(_ sender: UITextField) {
         moveTextField(sender, moveDistance: Int(self.view.frame.height/6) , up: true)
     }
+    @IBOutlet weak var btnAcessarOutlet: UIButton!
     
     func sairDoTeclado(){
         txtMatricula.resignFirstResponder()

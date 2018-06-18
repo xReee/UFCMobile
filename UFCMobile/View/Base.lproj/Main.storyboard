@@ -143,6 +143,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="btnAcessarOutlet" destination="9dd-PY-TcT" id="7Yp-0k-Qq0"/>
                         <outlet property="txtMatricula" destination="1KX-3e-aG7" id="mct-iB-Nbz"/>
                         <outlet property="txtSenha" destination="P6J-VN-R8N" id="XB6-D0-qjq"/>
                         <segue destination="AQX-HM-8tp" kind="presentation" identifier="gotoLogar" modalTransitionStyle="crossDissolve" id="y8q-HR-BTo"/>
@@ -558,7 +559,7 @@
                                     <outlet property="delegate" destination="fdJ-jW-2bz" id="VAS-R3-6fO"/>
                                 </connections>
                             </collectionView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BjJ-na-Uhk">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BjJ-na-Uhk">
                                 <rect key="frame" x="0.0" y="50" width="320" height="356"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -579,17 +580,85 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="D84-hU-m0q"/>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Inicio" id="izY-jX-8tb"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="agendaTableView" destination="BjJ-na-Uhk" id="XeS-7g-lju"/>
                         <outlet property="diasCollectionView" destination="tEk-fA-EdY" id="NAX-el-xea"/>
+                        <segue destination="wea-qZ-8VE" kind="show" identifier="gotoCadeiraByHome" id="CKF-f7-faX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lMn-qF-c3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="994" y="-1294"/>
+        </scene>
+        <!--Cadeira-->
+        <scene sceneID="gO2-Kz-Zqv">
+            <objects>
+                <tableViewController title="Cadeira" id="wea-qZ-8VE" customClass="CadeiraTableViewController" customModule="UFCMobile" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="D2U-Sb-IW0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cadeiraCell" textLabel="A2b-4m-PUG" rowHeight="49" style="IBUITableViewCellStyleDefault" id="NPW-fs-uAp">
+                                <rect key="frame" x="0.0" y="28" width="320" height="49"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NPW-fs-uAp" id="mrn-v5-8DA">
+                                    <rect key="frame" x="0.0" y="0.0" width="286" height="48.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A2b-4m-PUG">
+                                            <rect key="frame" x="16" y="0.0" width="269" height="48.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wea-qZ-8VE" id="yNp-Tz-vaG"/>
+                            <outlet property="delegate" destination="wea-qZ-8VE" id="zlf-3F-tBa"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="UMc-lZ-8kV" kind="show" identifier="gotoDetalheDaCadeira" id="7IK-iR-H2q"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZBM-zq-NQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2558" y="-1294"/>
+        </scene>
+        <!--Detalhe Cadeira Table View Controller-->
+        <scene sceneID="wVo-eG-dLQ">
+            <objects>
+                <tableViewController id="UMc-lZ-8kV" customClass="DetalheCadeiraTableViewController" customModule="UFCMobile" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1Ff-sF-ePi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="We9-6K-09Z">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="We9-6K-09Z" id="0Ja-Lf-3Rd">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="UMc-lZ-8kV" id="pKs-K8-Gcl"/>
+                            <outlet property="delegate" destination="UMc-lZ-8kV" id="PSI-KQ-uLP"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2v6-qo-q4m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3343" y="-1294"/>
         </scene>
         <!--Configurações-->
         <scene sceneID="BM5-Us-4PX">
@@ -785,6 +854,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="wea-qZ-8VE" kind="show" identifier="gotoCadeiraByPerfil" id="3zr-eE-MiV"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mVK-Ie-dP4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -921,7 +993,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1746" y="-575"/>
+            <point key="canvasLocation" x="1746" y="-576"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lnJ-7D-rCH">
@@ -958,5 +1030,8 @@
         <image name="reitoria" width="1024" height="680"/>
         <image name="seta-icon" width="150" height="147"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="3zr-eE-MiV"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.043137254899999998" green="0.53333333329999999" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

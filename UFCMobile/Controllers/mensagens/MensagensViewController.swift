@@ -37,7 +37,7 @@ class MensagensViewController:  UIViewController, UICollectionViewDelegate, UICo
         ref.child("users").child(userID!).child("cadeiras").observeSingleEvent(of: .value, with: { (snapshot) in
             if let cadeiras = snapshot.value as? NSDictionary {
                 for i in cadeiras {
-                    self.addCadeira(i.value as! String)
+                    self.addCadeira(i.key as! String)
                 }
             }
             
@@ -163,6 +163,7 @@ class MensagensViewController:  UIViewController, UICollectionViewDelegate, UICo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath) as! ChatTableViewCell
+        cell.selectionStyle = .none
         let nomeDaCadeiraDeAgora = arrayCadeira![indexPath.row].get("nome")
         cell.txtTitulo.text! = nomeDaCadeiraDeAgora
         if let ultimaMensagemDaCadeira = ultimasMensagens![nomeDaCadeiraDeAgora]{

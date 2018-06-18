@@ -18,6 +18,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var diaAtual = "domingo"
     var lastIndice = 0
     let userID = Auth.auth().currentUser?.uid
+    var opcaoAtiva = ""
+    var cadeiraCodigo = [String : String] ()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,6 +113,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     break
                 case "nome":
                     nome = i.value as! String
+                    self.cadeiraCodigo[nome] = cod
                     break
                 case"horario":
                     let dias = i.value as? NSDictionary
@@ -235,6 +238,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "agendaCVC") as! AgendaTableViewCell
 
+                cell.selectionStyle = .none
+                
                 guard let qntCadeiras = self.arrayCadeiras?.count else {
                     return cell
                 }
@@ -268,6 +273,18 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 return 90
             }
     
+            func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+                let cell = tableView.cellForRow(at: indexPath) as! AgendaTableViewCell
+                self.opcaoAtiva = cell.txtNome.text!
+                performSegue(withIdentifier: "gotoCadeiraByHome", sender: self)
+            }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "gotoCadeiraByHome"{
+            let viewDestino = segue.destination as! CadeiraTableViewController
+            viewDestino.opcao = self.opcaoAtiva
+            viewDestino.codCadeira = cadeiraCodigo[self.opcaoAtiva]!
+        }
+    }
 
 }
